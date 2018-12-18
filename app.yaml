@@ -1,0 +1,50 @@
+# [START django_app]
+runtime: python37
+entrypoint: gunicorn -b :$PORT projektNaChmureDJango.wsgi # specific to a GUnicorn HTTP server deployment
+
+runtime_config:
+  python_version: 3
+  
+handlers:
+
+- url: /static
+  static_dir: static/
+
+- url: /sojusz/.*
+  script: auto
+
+- url: /miasto/.*
+  script: auto
+  
+- url: /kontakt/.*
+  script: auto
+  
+- url: /.*
+  script: auto
+  
+- url: /wiadomosci/.*
+  script: auto
+  
+- url: /premium/.*
+  script: auto
+  
+- url: /profil/.*
+  script: auto
+  
+- url: /rankingi/.*
+  script: auto  
+
+- url: /raporty/.*
+  script: auto  
+
+- url: /mapa/.*
+  script: auto   
+ 
+- url: /test/.*
+  script: auto
+  login: admin
+  
+- url: /admin/.*
+  script: auto
+  login: admin    
+# [END django_app]

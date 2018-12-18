@@ -1,0 +1,8 @@
+cron:
+- description: "add resources every 10 minutes"
+  url: /test/dodajSurowce/
+  schedule: every 10 minutes
+  
+- description: "attack logic every minute"
+  url: /test/zaktualizujAtaki/
+  schedule: every 1 minutes
