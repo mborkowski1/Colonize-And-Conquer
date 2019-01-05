@@ -16,7 +16,7 @@ class SupportTicket(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
-    comments = models.ManyToManyField(Comment, blank=True, null=True)
+    comments = models.ManyToManyField(Comment, blank=True)
     question_type = models.CharField(max_length=200, blank=True, null=True)
 
 
