@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'worldMap/worldMapCss.css' %}">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <title>CCPX</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark center">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="custom-center">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../../../miasto/city_list/  "><i class="fa fa-list-ul"></i> City List</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../../"><i class="fa fa-globe"></i> Map</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../../../wiadomosci/"><i class="fa fa-envelope"></i> Messages</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../../../raporty/"><i class="fa fa-envelope-square"></i> Raports</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../../../sojusz/"><i class="fab fa-rebel"></i> Alliance</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../../../rankingi/"><i class="fa fa-align-justify"></i> Rankings</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../../../profil/"><i class="fa fa-user-circle"></i> Profil</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../../../premium/"><i class="fas fa-yen-sign"></i> Premium</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<h1 class="text-center" style="font-family:'Lobster'; margin: 20px;"><u>User details</u></h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2 profilePanel text-center">
+            <p class="profileText"><a href="../../">Back to map</a></p>
+        </div>
+        <div class="col-lg-10 profilePanel text-center">
+
+            {% if not profil.profile_pic %}
+            <img height="350" width="220" src="{% static 'alliance/defaultProfilePic.jpg' %} "
+                 alt="Profile pic" class="profileImage"/>
+            {% else %}
+            <img height="350" width="220" src='{{ profil.profile_pic}}' alt="Profile pic" class="profileImage"/>
+            {% endif %}
+
+
+            <p class="text-center profileLabel"> Username: <span style="color: darkblue">{{ user.username }}</p>
+            <p class="text-center profileLabel">Bio: {{ profil.bio }}</p>
+
+            <table class="table table-borderless table-hover">
+                <thead class="thead-dark">
+                <th>id</th>
+                <th>Name</th>
+                <th>Points</th>
+                <th>PozX</th>
+                <th>PozY</th>
+                </thead>
+                {% for city in citys %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td><a href='../../{{ city.id }}'>{{ city.city_name }}</a></td>
+                    <td>{{ city.points }}</td>
+                    <td>{{ city.pos_x }}</td>
+                    <td>{{ city.pos_y }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+</html> 
