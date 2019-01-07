@@ -5,7 +5,7 @@ body {
 }
 
 nav {
-    background: brown;
+    background: url('../cityMap/assets/yellowBackground3.png');
     background-size: 100%;
     border-bottom-left-radius: 20%;
     border-bottom-right-radius: 20%;
@@ -149,3 +149,35 @@ button:hover {
     background-color: #bc0101;
 }
 
+
+.copyright{
+    background-color:#f0f0f0;
+}
+
+footer{
+    background: rgb(0, 0, 0, 0.8);
+    padding-top: 30px;
+    padding-bottom: 20px;
+    margin-top: 10px;
+}
+
+footer .menu li a{
+	color:#b1aca1;
+    padding: 10px;
+    text-decoration:none;
+}
+
+footer .menu li a:hover{
+	color:#7dabdb;
+}
+footer .fa.fa-facebook ,
+footer .fa.fa-twitter {
+	color:#b1aca1;
+	font-size:20px;
+	padding:10px;
+}
+
+footer .fa.fa-facebook:hover,
+footer .fa.fa-twitter:hover {
+	color:#6794c2;
+}

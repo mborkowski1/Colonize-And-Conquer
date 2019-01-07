@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'mainPage/mainPageCss.css' %}" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" crossorigin="anonymous"></script>
+
+    <title>CCPX</title>
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-expand-md navbar-dark center">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="custom-center">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link " href="../"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item active language dropdown">
+                        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false"><i class="fa fa-language"></i> Language</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#"><img src="{% static 'mainPage/gb.png' %}"> English</a>
+                        </div>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../forum/"><i class="fa fa-ioxhost"></i> Forum</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../support/"><i class="fa fa-question-circle"></i> Support</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link " href="../faq/"><i class="fas fa-book"></i> FAQ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="container infoPanel" style="padding:20px;">
+    <div class="row col-lg-12">
+        <h1 class="custom-center" style="color: #dca600;">FAQ</h1>
+    </div>
+
+    <div class="container mt-3">
+        <div class="accordion" id="accordionExample">
+            <div class="card bg-dark">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" style="color: #dca600;" type="button" data-toggle="collapse"
+                                data-target="#collapseOne"
+                                aria-expanded="true" aria-controls="collapseOne">
+                            What are the benefits of a premium account?
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                     data-parent="#accordionExample">
+                    <div class="card-body">
+                        All
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-dark">
+                <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" style="color: #dca600;" type="button"
+                                data-toggle="collapse"
+                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Collapsible Group Item #2
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                        3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
+                        laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin
+                        coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
+                        anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard
+                        of them accusamus labore sustainable VHS.
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-dark">
+                <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" style="color: #dca600;" type="button"
+                                data-toggle="collapse"
+                                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Collapsible Group Item #3
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                        3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
+                        laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin
+                        coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
+                        anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard
+                        of them accusamus labore sustainable VHS.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer fixed-bottom">
+    <footer>
+        <div class="container">
+            <div class="row">
+                <ul class="list-inline custom-center">
+                    <li class="list-inline-item">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <ul class="menu list-inline custom-center">
+                    <li class="list-inline-item">
+                        <a href="#">Home</a>
+                    </li>
+
+                    <li class="list-inline-item">
+                        <a href="/kontakt/kontakt">Contact</a>
+                    </li>
+
+                    <li class="list-inline-item">
+                        <a href="/kontakt/cookies">Cookies</a>
+                    </li>
+
+                    <li class="list-inline-item">
+                        <a href="/kontakt/zasady">Rules</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <p class="custom-center" style="color: white; margin-top: 10px">Copyright © 2018 CCPX.com AKKM Limited
+                    All
+                    rights reserved</p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+</html>
