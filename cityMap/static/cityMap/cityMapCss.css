@@ -1,0 +1,168 @@
+body {
+    background: url('../cityMap/assets/yellowBackground2.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+nav {
+    background: url('../cityMap/assets/yellowBackground3.png');
+    background-size: 100%;
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+    font-family: 'Lobster';
+}
+
+.custom-center {
+    margin: auto;
+}
+
+nav li:hover {
+    background: #785800;
+    border-radius: 25%;
+}
+
+nav li {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#borderimg1 {
+
+    border: 10px solid transparent;
+    padding: 15px;
+    border-image: url('../cityMap/assets/border8.png') 30 round;
+}
+
+#cityWelcomeDiv {
+    width: 1120px;
+    height: 50px;
+    float: left;
+    margin: 5px;
+    background-color: rgb(144, 129, 105, 0.7);
+    border: 10px solid transparent;
+    border-image: url('../cityMap/assets/border3.png') 30 round;
+}
+
+#cityInfoDiv {
+    width: 250px;
+    height: 700px;
+    float: left;
+    margin: 5px;
+    padding: 5px;
+    background-color: rgb(144, 129, 105, 0.7);
+    border: 10px solid transparent;
+    border-image: url('../cityMap/assets/border3.png') 30 round;
+}
+
+#cityRenderDiv {
+    width: 950px;
+    height: 650px;
+    float: left;
+}
+
+#cityRenderDiv canvas {
+    border: 10px solid transparent;
+    padding: 0px;
+    border-image: url('../cityMap/assets/border8.png') 30 round;
+}
+
+#centerDiv {
+    width: 1300px;
+    height: 850px;
+    display: table;
+    margin: 20px auto 0;
+}
+
+#containerDiv {
+    width: 1300px;
+    height: 850px;
+    float: left;
+    background-color: #dfcea2;
+    border: 10px solid transparent;
+    padding: 15px;
+    border-image: url('../cityMap/assets/border8.png') 30 round;
+}
+
+.productionBuidingsImage {
+    border: 10px solid transparent;
+    border-image: url('../cityMap/assets/border3.png') 30 round;
+    width: 100%;
+}
+
+.mainBody {
+    margin-top: 10px;
+    border: 10px solid transparent;
+    padding: 10px;
+    border-image: url('../cityMap/assets/border8.png') 30 round;
+    background-color: #dfcea2;
+}
+
+.decription {
+    background-color: #212529;
+    color: white;
+    padding-left: 10px;
+}
+
+.sub-title {
+    font-size: 1.4em;
+    color: darkred;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.subs {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+input[type=button] {
+    margin-top: 30px;
+    margin-left: 50px;
+    background-color: darkred;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Lobster';
+
+}
+
+input[type=button]:hover {
+    background-color: #bc0101;
+    cursor: pointer;
+}
+
+.cityPanel {
+    background-color: rgb(223, 206, 162);
+    border: 15px solid transparent;
+    border-image: url('../cityMap/assets/border8.png') 30 round;
+    margin: auto;
+    margin-top: 20px;
+    height: 500px;
+
+    padding: 10px 5px;
+
+}
+
+input[type=submit] {
+    margin: auto;
+    background-color: darkred;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Lobster';
+
+}
+
+input[type=submit]:hover {
+    background-color: #bc0101;
+    cursor: pointer;
+}
