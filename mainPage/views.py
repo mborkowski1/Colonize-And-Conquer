@@ -147,6 +147,22 @@ def show_support(request):
 
     return render(request, 'support.html', {'form': form})
 
+	
+def show_ticket_details(request, id_of_ticket):
+    ticket = SupportTicket.objects.get(id=id_of_ticket)
+    form = CommentForm()
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.author = request.user
+            form.save()
+            ticket.comments.add(form)
+            ticket.save()
+            form = CommentForm()
+
+    return render(request, 'ticketDetail.html', {'ticket': ticket, 'form': form})
+	
 
 def show_faq(request):
     return render(request, 'faq.html')
