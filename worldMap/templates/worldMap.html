@@ -3,153 +3,150 @@
   <head>
       {% load static %}
 
-      <!-- Required meta tags -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-      <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
       <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="{% static 'worldMap/worldMapCss.css' %}">
 
       <title>CCPX</title>
       <script>
-          var backgroundMap = "{% static 'worldMap/assets/backgroundMap.png' %}"
-          var cityIcon5 = "{% static 'worldMap/assets/cityIcon5.png' %}"
-          var cityIcon4 = "{% static 'worldMap/assets/cityIcon4.png' %}"
-          var cityIcon3 = "{% static 'worldMap/assets/cityIcon3.png' %}"
-          var cityIcon2 = "{% static 'worldMap/assets/cityIcon2.png' %}"
-          var cityIcon1 = "{% static 'worldMap/assets/cityIcon1.png' %}"
-          var infoPanel = "{% static 'worldMap/assets/infoPanel.png' %}"
-          var tankGif = "{% static 'worldMap/assets/tank_gif.png' %}"
-          var tankGif_rules = "{% static 'worldMap/assets/tank_gif.json' %}"
+          var backgroundMap = "{% static 'worldMap/assets/backgroundMap.png' %}";
+          var cityIcon5 = "{% static 'worldMap/assets/cityIcon5.png' %}";
+          var cityIcon4 = "{% static 'worldMap/assets/cityIcon4.png' %}";
+          var cityIcon3 = "{% static 'worldMap/assets/cityIcon3.png' %}";
+          var cityIcon2 = "{% static 'worldMap/assets/cityIcon2.png' %}";
+          var cityIcon1 = "{% static 'worldMap/assets/cityIcon1.png' %}";
+          var infoPanel = "{% static 'worldMap/assets/infoPanel.png' %}";
+          var tankGif = "{% static 'worldMap/assets/tank_gif.png' %}";
+          var tankGif_rules = "{% static 'worldMap/assets/tank_gif.json' %}";
 
-          var tankGifS = "{% static 'worldMap/assets/tank_gifs.png' %}"
-          var tankGifS_rules = "{% static 'worldMap/assets/tank_gifs.json' %}"
+          var tankGifS = "{% static 'worldMap/assets/tank_gifs.png' %}";
+          var tankGifS_rules = "{% static 'worldMap/assets/tank_gifs.json' %}";
 
-          var cityListNames = []
-          var cityListOwnerNames = []
-          var cityListX = []
-          var cityListY = []
-          var cityListPoints = []
-          var i = 0
-		  var cityListId = []
+          var cityListNames = [];
+          var cityListOwnerNames = [];
+          var cityListX = [];
+          var cityListY = [];
+          var cityListPoints = [];
+          var i = 0;
+		  var cityListId = [];
 
-          var cityListAttackerX = []
-          var cityListAttackerY = []
-          var cityListDefenderX = []
-          var cityListDefenderY = []
-          var cityListAttackerTime = []
-          var cityLisDefenderTime = []
-          liczbaArmi = 0
+          var cityListAttackerX = [];
+          var cityListAttackerY = [];
+          var cityListDefenderX = [];
+          var cityListDefenderY = [];
+          var cityListAttackerTime = [];
+          var cityLisDefenderTime = [];
+          liczbaArmi = 0;
 
-          var cityListAttackerXS = []
-          var cityListAttackerYS = []
-          var cityListDefenderXS = []
-          var cityListDefenderYS = []
-          var cityListAttackerTimeS = []
-          var cityLisDefenderTimeS = []
+          var cityListAttackerXS = [];
+          var cityListAttackerYS = [];
+          var cityListDefenderXS = [];
+          var cityListDefenderYS = [];
+          var cityListAttackerTimeS = [];
+          var cityLisDefenderTimeS = [];
           liczbaArmiS = 0
       </script>
   </head>
   <body>
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-dark center">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark center">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="custom-center">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="../miasto/city_list/  "><i class="fa fa-list-ul"></i> City List</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="../mapa/"><i class="fa fa-globe"></i> Map</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="../wiadomosci/"><i class="fa fa-envelope"></i> Messages</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="../raporty/"><i class="fa fa-envelope-square"></i> Raports</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="../sojusz/"><i class="fab fa-rebel"></i> Alliance</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="../rankingi/"><i class="fa fa-align-justify"></i> Rankings</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="../profil/"><i class="fa fa-user-circle"></i> Profil</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="../premium/"><i class="fas fa-yen-sign"></i> Premium</a>
+                            </li>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="custom-center">
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../miasto/city_list/  "><i class="fa fa-list-ul"></i> City List</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../mapa/"><i class="fa fa-globe"></i> Map</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../wiadomosci/"><i class="fa fa-envelope"></i> Messages</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../raporty/"><i class="fa fa-envelope-square"></i> Raports</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../sojusz/"><i class="fab fa-rebel"></i> Alliance</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../rankingi/"><i class="fa fa-align-justify"></i> Rankings</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../profil/"><i class="fa fa-user-circle"></i> Profil</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../premium/"><i class="fas fa-yen-sign"></i> Premium</a>
-                    </li>
-
-                </ul>
-            </div>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </div>
-    </nav>
-</div>
-    <div class="container">
-        <h1 class="text-center" style="font-family:'Lobster'; margin: 20px;"><u>World map </u></h1>
+        <div class="container">
+            <h1 class="text-center" style="font-family:'Lobster'; margin: 20px;"><u>World map </u></h1>
 
-        <script type="text/javascript">
-            {% for city in city_list %}
+            <script type="text/javascript">
+                {% for city in city_list %}
 
-                cityListNames[i] = "{{ city.city_name }}"
-                cityListOwnerNames[i] = "{{city.city_owner}}"
-                cityListX[i] = "{{ city.pos_x }}"
-                cityListY[i] = "{{ city.pos_y }}"
-                cityListPoints[i] = "{{ city.points }}"
-				cityListId[i] = "{{ city.id }}"
-                i = i + 1
+                    cityListNames[i] = "{{ city.city_name }}";
+                    cityListOwnerNames[i] = "{{city.city_owner}}";
+                    cityListX[i] = "{{ city.pos_x }}";
+                    cityListY[i] = "{{ city.pos_y }}";
+                    cityListPoints[i] = "{{ city.points }}";
+                    cityListId[i] = "{{ city.id }}";
+                    i = i + 1
 
-            {% endfor %}
+                {% endfor %}
 
-            i = 0;
+                i = 0;
 
-            {% for attack in attacks %}
-                cityListAttackerX[i] = "{{ attack.attacker.pos_x }}"
-                cityListAttackerY[i] = "{{ attack.attacker.pos_y }}"
-                cityListDefenderX[i] = "{{ attack.defender.pos_x }}"
-                cityListDefenderY[i] = "{{ attack.defender.pos_y }}"
-                cityListAttackerTime[i] = "{{ attack.send.timestamp }}"
-                cityLisDefenderTime[i] = "{{ attack.arrive.timestamp }}"
-				
-                i = i + 1
-                liczbaArmi = liczbaArmi + 1
-            {% endfor %}
+                {% for attack in attacks %}
+                    cityListAttackerX[i] = "{{ attack.attacker.pos_x }}";
+                    cityListAttackerY[i] = "{{ attack.attacker.pos_y }}";
+                    cityListDefenderX[i] = "{{ attack.defender.pos_x }}";
+                    cityListDefenderY[i] = "{{ attack.defender.pos_y }}";
+                    cityListAttackerTime[i] = "{{ attack.send.timestamp }}";
+                    cityLisDefenderTime[i] = "{{ attack.arrive.timestamp }}";
 
-            i = 0;
+                    i = i + 1;
+                    liczbaArmi = liczbaArmi + 1;
+                {% endfor %}
 
-            {% for support in supports %}
-                cityListAttackerXS[i] = "{{ support.support.pos_x }}"
-                cityListAttackerYS[i] = "{{ support.support.pos_y }}"
-                cityListDefenderXS[i] = "{{ support.defender.pos_x }}"
-                cityListDefenderYS[i] = "{{ support.defender.pos_y }}"
-                cityListAttackerTimeS[i] = "{{ support.send.timestamp }}"
-                cityLisDefenderTimeS[i] = "{{ support.arrive.timestamp }}"
+                i = 0;
 
-                i = i + 1
-                liczbaArmiS = liczbaArmiS + 1
-            {% endfor %}
-        </script>
-        {% block mapPanel %}
+                {% for support in supports %}
+                    cityListAttackerXS[i] = "{{ support.support.pos_x }}";
+                    cityListAttackerYS[i] = "{{ support.support.pos_y }}";
+                    cityListDefenderXS[i] = "{{ support.defender.pos_x }}";
+                    cityListDefenderYS[i] = "{{ support.defender.pos_y }}";
+                    cityListAttackerTimeS[i] = "{{ support.send.timestamp }}";
+                    cityLisDefenderTimeS[i] = "{{ support.arrive.timestamp }}";
 
-            <div class="col-lg-12">
-                <h1>brak mapy</h1>
-            </div>
-        {% endblock %}
-    </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="{% static 'worldMap/js/phaser.js' %}"></script>
-    <script src="{% static 'worldMap/js/testMapy.js' %}"></script>
+                    i = i + 1;
+                    liczbaArmiS = liczbaArmiS + 1;
+                {% endfor %}
+            </script>
+            {% block mapPanel %}
+
+                <div class="col-lg-12">
+                    <h1>brak mapy</h1>
+                </div>
+            {% endblock %}
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="{% static 'worldMap/js/phaser.js' %}"></script>
+        <script src="{% static 'worldMap/js/testMapy.js' %}"></script>
   </body>
 </html>
