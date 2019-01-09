@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en">
   <head>
       {% load static %}
@@ -12,7 +11,6 @@
       <link rel="stylesheet" href="{% static 'cityMap/cityMapCss.css' %}">
 
       <script src="{% static 'cityMap/js/phaser.js' %}"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" crossorigin="anonymous"></script>
 
       <title>CCPX</title>
       {% if brak_miasta == 1 %}
@@ -20,35 +18,34 @@
       {% else %}
         <script src="{% static 'cityMap/js/testMiasta.js' %}"></script>
           <script>
-              var background = "{% static 'cityMap/assets/background.png' %}"
-              var barracks_1 = "{% static 'cityMap/assets/barracks_1.png' %}"
-              var barracks_2 = "{% static 'cityMap/assets/barracks_2.png' %}"
-              var energy_1 = "{% static 'cityMap/assets/energy_1.png' %}"
-              var energy_2 = "{% static 'cityMap/assets/energy_2.png' %}"
-              var farms_1 = "{% static 'cityMap/assets/farms_1.png' %}"
-              var farms_2 = "{% static 'cityMap/assets/farms_2.png' %}"
-              var housing_1 = "{% static 'cityMap/assets/housing_1.png' %}"
-              var housing_2 = "{% static 'cityMap/assets/housing_2.png' %}"
-              var mine_1 = "{% static 'cityMap/assets/mine_1.png' %}"
-              var mine_2 = "{% static 'cityMap/assets/mine_2.png' %}"
-              var roads_1 = "{% static 'cityMap/assets/roads_1.png' %}"
-              var roads_2 = "{% static 'cityMap/assets/roads_2.png' %}"
-              var town_hall_1 = "{% static 'cityMap/assets/town_hall_1.png' %}"
-              var town_hall_2 = "{% static 'cityMap/assets/town_hall_2.png' %}"
-              var town_hall_3 = "{% static 'cityMap/assets/town_hall_3.png' %}"
-              var science_center = "{% static 'cityMap/assets/science_center.png' %}"
-              var lvlfarms = {{city.farms}}
-              var lvlroads = {{city.roads}}
-              var lvltownHall = {{city.town_hall}}
-              var lvlbarracks = {{city.barracks}}
-              var lvlpowerPlant = {{city.power_plant}}
-              var lvlmine = {{city.mines}}
-              var lvlhousing = {{city.housing}}
+              var background = "{% static 'cityMap/assets/background.png' %}";
+              var barracks_1 = "{% static 'cityMap/assets/barracks_1.png' %}";
+              var barracks_2 = "{% static 'cityMap/assets/barracks_2.png' %}";
+              var energy_1 = "{% static 'cityMap/assets/energy_1.png' %}";
+              var energy_2 = "{% static 'cityMap/assets/energy_2.png' %}";
+              var farms_1 = "{% static 'cityMap/assets/farms_1.png' %}";
+              var farms_2 = "{% static 'cityMap/assets/farms_2.png' %}";
+              var housing_1 = "{% static 'cityMap/assets/housing_1.png' %}";
+              var housing_2 = "{% static 'cityMap/assets/housing_2.png' %}";
+              var mine_1 = "{% static 'cityMap/assets/mine_1.png' %}";
+              var mine_2 = "{% static 'cityMap/assets/mine_2.png' %}";
+              var roads_1 = "{% static 'cityMap/assets/roads_1.png' %}";
+              var roads_2 = "{% static 'cityMap/assets/roads_2.png' %}";
+              var town_hall_1 = "{% static 'cityMap/assets/town_hall_1.png' %}";
+              var town_hall_2 = "{% static 'cityMap/assets/town_hall_2.png' %}";
+              var town_hall_3 = "{% static 'cityMap/assets/town_hall_3.png' %}";
+              var science_center = "{% static 'cityMap/assets/science_center.png' %}";
+              var lvlfarms = {{city.farms}};
+              var lvlroads = {{city.roads}};
+              var lvltownHall = {{city.town_hall}};
+              var lvlbarracks = {{city.barracks}};
+              var lvlpowerPlant = {{city.power_plant}};
+              var lvlmine = {{city.mines}};
+              var lvlhousing = {{city.housing}};
           </script>
       {% endif %}
   </head>
   <body>
-
         {% if user.is_authenticated %}
             {% if brak_miasta == 1 %}
                 {% block createCity %}
