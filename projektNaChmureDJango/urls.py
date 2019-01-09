@@ -21,6 +21,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('mainPage.urls')),
+	path('miasto/', include('cityMap.urls')),
+	path('mapa/', include('worldMap.urls')),
 	path('admin/', admin.site.urls),
 	url(r'^oauth/', include('social_django.urls', namespace='social')),
 ]

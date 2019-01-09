@@ -1,0 +1,116 @@
+{% extends 'cityMap.html' %}
+
+{% block cityPanel %}
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark center">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="custom-center">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/miasto/city_list/  "><i class="fa fa-list-ul"></i> City List</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../../mapa/"><i class="fa fa-globe"></i> Map</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../../wiadomosci/"><i class="fa fa-envelope"></i> Messages</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../../raporty/"><i class="fa fa-envelope-square"></i> Raports</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../../sojusz/"><i class="fab fa-rebel"></i> Alliance</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../../rankingi/"><i class="fa fa-align-justify"></i> Rankings</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../../profil/"><i class="fa fa-user-circle"></i> Profil</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../../premium/"><i class="fas fa-yen-sign"></i> Premium</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<h1 class="text-center" style="font-family:'Lobster'; margin: 20px;"><u>City map</u></h1>
+
+<div style="width:100%;">
+    <div id="centerDiv">
+        <div id="containerDiv">
+            <div id="cityWelcomeDiv">
+                <h3>Welcome <span style="color:darkred">{{ user.username }}</span> in your city <span
+                        style="color:darkblue"> {{ city.city_name }} </span></h3>
+            </div>
+            <div id="cityInfoDiv">
+                <p class="sub-title">Buildings:</p>
+                <p class="subs">Town Hall: <span style="color: darkblue">{{ city.town_hall }}</span></p>
+                <p class="subs">Barrack: <span style="color: darkblue">{{ city.barracks }}</span></p>
+                <p class="subs">Roads: <span style="color: darkblue">{{ city.roads }}</span></p>
+                <p class="subs">Mines: <span style="color: darkblue">{{ city.mines }}</span></p>
+                <p class="subs">Power plant: <span style="color: darkblue">{{ city.power_plant }}</span></p>
+                <p class="subs">Farms: <span style="color: darkblue">{{ city.farms }}</span></p>
+
+                <p class="sub-title ">City position:</p>
+                <p class="subs">X: <span style="color: darkblue"> {{ city.pos_x }}</span> Y:<span
+                        style="color: darkblue"> {{ city.pos_y }}</span>
+                </p>
+
+                <p class="sub-title ">Army:</p>
+                <p class="subs">Infantry: <span style="color: darkblue">{{ city.infantry }}</span></p>
+                <p class="subs">Heavy Infantry: <span style="color: darkblue">{{ city.hinfantry }}</span></p>
+                <p class="subs">Motorised: <span style="color: darkblue">{{ city.motorized }}</span></p>
+                <p class="subs">Light Tanks: <span style="color: darkblue">{{ city.ltanks }}</span></p>
+                <p class="subs">Heavy Tanks: <span style="color: darkblue">{{ city.htanks }}</span></p>
+                <p class="subs">Planes: <span style="color: darkblue">{{ city.planes }}</span></p>
+                <form>
+                    <input type="button" value="City list"
+                           onclick="window.location.href='../'"/>
+                </form>
+            </div>
+            <div id="cityRenderDiv"></div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block errorNotLogIn %}
+<div class="container errorNotLoged" id="containerDiv">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>You are not loged in</h1>
+            <p>Please visit this site: <a href="{% url 'main_page' %}">main page</a></p>
+            <hr>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block createCity %}
+<h1 class="text-center" style="font-family:'Lobster'; margin: 20px;"><u>Create your first city</u></h1>
+
+<div class="container cityPanel">
+    <div class="row">
+        <div class="col-lg-12">
+            <form action="" method="post">
+                <div class="text-center subs">
+                    {% csrf_token %}
+                    {{ form }}
+                </div>
+                <div class="text-center">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

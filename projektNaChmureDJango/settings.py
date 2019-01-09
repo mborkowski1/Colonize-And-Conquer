@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     'paypal.standard.ipn',
     'social_django',
 	'mainPage',
+	'cityMap',
+	'worldMap',
 ]
 
 MIDDLEWARE = [
