@@ -29,6 +29,7 @@ INSTALLED_APPS = [
 	'mainPage',
 	'cityMap',
 	'worldMap',
+	'alliance',
 ]
 
 MIDDLEWARE = [
