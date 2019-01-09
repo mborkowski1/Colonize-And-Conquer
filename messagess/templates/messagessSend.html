@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% load static %}
+</head>
+<body>
+            <p class="messageText"><a href=""><u>New Message</u></a></p>
+            <p class="messageText"><a href="../"><u>Received Messages</u></a></p>
+            <p class="messageText"><a href="../wyslane/"><u>Your messages</u></a></p>
+        
+            <form class="site-from" action="" method="post">
+                {% csrf_token %}
+                <p class="messageInputLabel">Username:</p>
+                <p>{{ message_form.to_who }}</p>
+                <p class="messageInputLabel">Title</p>
+                <p>{{ message_form.title }}</p>
+                <p class="messageInputLabel">Text</p>
+                <p>{{ message_form.text }}</p>
+                <input type="submit" value="Send" name="MessageContent">
+            </form>
+</body>
+</html>
