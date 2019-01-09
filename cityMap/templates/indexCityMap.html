@@ -3,7 +3,6 @@
 {% block cityPanel %}
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-dark center">
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -35,20 +34,19 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="../../premium/"><i class="fas fa-yen-sign"></i> Premium</a>
                     </li>
-
                 </ul>
             </div>
         </div>
     </nav>
 </div>
+
 <h1 class="text-center" style="font-family:'Lobster'; margin: 20px;"><u>City map</u></h1>
 
 <div style="width:100%;">
     <div id="centerDiv">
-        <div id="containerDiv">
+        <div id="containerDiv1">
             <div id="cityWelcomeDiv">
-                <h3>Welcome <span style="color:darkred">{{ user.username }}</span> in your city <span
-                        style="color:darkblue"> {{ city.city_name }} </span></h3>
+                <h3>Welcome <span style="color:darkred">{{ user.username }}</span> in your city <span style="color:darkblue"> {{ city.city_name }} </span></h3>
             </div>
             <div id="cityInfoDiv">
                 <p class="sub-title">Buildings:</p>
@@ -58,12 +56,8 @@
                 <p class="subs">Mines: <span style="color: darkblue">{{ city.mines }}</span></p>
                 <p class="subs">Power plant: <span style="color: darkblue">{{ city.power_plant }}</span></p>
                 <p class="subs">Farms: <span style="color: darkblue">{{ city.farms }}</span></p>
-
                 <p class="sub-title ">City position:</p>
-                <p class="subs">X: <span style="color: darkblue"> {{ city.pos_x }}</span> Y:<span
-                        style="color: darkblue"> {{ city.pos_y }}</span>
-                </p>
-
+                <p class="subs">X: <span style="color: darkblue"> {{ city.pos_x }}</span> Y:<span style="color: darkblue"> {{ city.pos_y }}</span></p>
                 <p class="sub-title ">Army:</p>
                 <p class="subs">Infantry: <span style="color: darkblue">{{ city.infantry }}</span></p>
                 <p class="subs">Heavy Infantry: <span style="color: darkblue">{{ city.hinfantry }}</span></p>
@@ -72,19 +66,17 @@
                 <p class="subs">Heavy Tanks: <span style="color: darkblue">{{ city.htanks }}</span></p>
                 <p class="subs">Planes: <span style="color: darkblue">{{ city.planes }}</span></p>
                 <form>
-                    <input type="button" value="City list"
-                           onclick="window.location.href='../'"/>
+                    <input type="button" value="City list" onclick="window.location.href='../'"/>
                 </form>
             </div>
             <div id="cityRenderDiv"></div>
-
         </div>
     </div>
 </div>
 {% endblock %}
 
 {% block errorNotLogIn %}
-<div class="container errorNotLoged" id="containerDiv">
+<div class="container errorNotLoged" id="containerDiv2">
     <div class="row">
         <div class="col-lg-12">
             <h1>You are not loged in</h1>

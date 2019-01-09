@@ -9,36 +9,6 @@
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
       <link rel="stylesheet" href="{% static 'cityMap/cityMapCss.css' %}">
       <script src="{% static 'cityMap/js/phaser.js' %}"></script>
-      <script src="{% static 'cityMap/js/testTechTree.js' %}"></script>
-      <script>
-              var background = "{% static 'cityMap/assets/backgroundScience.jpg' %}";
-              var barracks_2 = "{% static 'cityMap/assets/barracks_2.png' %}";
-              var energy_2 = "{% static 'cityMap/assets/energy_2.png' %}";
-              var farms_2 = "{% static 'cityMap/assets/farms_2_res.png' %}";
-              var housing_2 = "{% static 'cityMap/assets/housing_2.png' %}";
-              var mine_2 = "{% static 'cityMap/assets/mine_2.png' %}";
-              var roads_2 = "{% static 'cityMap/assets/roads_2_res.jpg' %}";
-              var town_hall_2 = "{% static 'cityMap/assets/town_hall_2.png' %}";
-              var town_hall_3 = "{% static 'cityMap/assets/town_hall_3.png' %}";
-              var infoPanel = "{% static 'cityMap/assets/infoPanelTech.png' %}";
-              var infoPanel2 = "{% static 'cityMap/assets/infoPanelTech2.png' %}";
-              var lvlfarms = {{city.farms}};
-              var lvlroads = {{city.roads}};
-              var lvltownHall = {{city.town_hall}};
-              var lvlbarracks = {{city.barracks}};
-              var lvlpowerPlant = {{city.power_plant}};
-              var lvlmine = {{city.mines}};
-              var lvlhousing = {{city.housing}};
-
-              var researchTH1 = {{city.research_th1}};
-              var researchTH2 = {{city.research_th2}};
-              var researchM = {{city.research_m}};
-              var researchF = {{city.research_f}};
-              var researchPP = {{city.research_pp}};
-              var researchR = {{city.research_r}};
-              var researchH = {{city.research_h}};
-              var researchB = {{city.research_b}};
-      </script>
       <title>CCPX</title>
   </head>
   <body>
@@ -80,10 +50,40 @@
           </div>
       </nav>
   </div>
-  <h1 class="text-center" style="font-family:'Lobster'; margin: 20px;"><u>Science center</u></h1>
+  <h1 class="text-center" style="font-family:'Lobster'; margin: 20px;"><u>Power plant </u></h1>
   <div class="container">
       <div class="row mainBody">
-          <div class="col-12" id="techTreeRenderDiv">
+          <div class="col-7">
+              <img class="productionBuidingsImage image-fluid" src="{% static 'cityMap/assets/tabSolarFarm.jpg' %}">
+          </div>
+          <div class="col-5 row">
+              <div class="col-12">
+                  <table class="table table-hover table-borderless">
+                      <thead class="thead-dark">
+                      <tr>
+                          <th scope="col">Level</th>
+                          <th scope="col">Production</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                          <td>Current: {{ current_level }}</td>
+                          <td>{{ current_level_production }}</td>
+                      </tr>
+                      <tr>
+                          <td>Next: {{ next_level }}</td>
+                          <td>{{ next_level_production }}</td>
+                      </tr>
+                      </tbody>
+                  </table>
+              </div>
+              <div class="col-12">
+                  <p class="decription"><b>Decription</b></p>
+                  <p class="decriptionText">The Powerplant is the source of energy for your colony.
+                      You need energy to recruit new units, expand the city and set up new ones.
+                      Each level of the building will increase the amount of energy produced by the Powerplant by 10
+                      units per hour.</p>
+              </div>
           </div>
       </div>
   </div>
