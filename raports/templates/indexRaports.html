@@ -1,0 +1,114 @@
+{% extends 'raports.html' %}
+
+{% block showRaports %}
+<div class="row col-lg-12 raportPanel">
+    <h3 class="h3 custom-center font-weight-bold"><u>Battle Reports
+    </u></h3>
+    <table class="table table-hover table-borderless">
+        <thead class="thead-dark">
+        <tr>
+            <th>City</th>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Have seen ?</th>
+        </tr>
+        </thead>
+        {% for battleraport in battleraports %}
+        <tr>
+            <td>{{ battleraport.cityD }}</td>
+            <td><a href='{{ battleraport.id }}/0'>{{ battleraport.name }}</a></td>
+            <td>{{ battleraport.created_date }}</td>
+            <td>{{ battleraport.have_seen }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<div class="row col-lg-12 raportPanel">
+    <h3 class="h3 custom-center font-weight-bold"><u>Alliance Reports
+    </u></h3>
+    <table class="table table-hover table-borderless">
+        <thead class="thead-dark">
+        <tr>
+            <th>Sender</th>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Have seen ?</th>
+        </tr>
+        </thead>
+        {% for alliancereport in alliancereports %}
+        <tr>
+            <td>{{ alliancereport.sender }}</td>
+            <td><a href='{{ alliancereport.id }}/1'>{{ alliancereport.name }}</a></td>
+            <td>{{ alliancereport.created_date }}</td>
+            <td>{{ alliancereport.have_seen }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<div class="row col-lg-12 raportPanel">
+    <h3 class="h3 custom-center font-weight-bold"><u>Help Reports
+    </u></h3>
+    <table class="table table-hover table-borderless">
+        <thead class="thead-dark">
+        <tr>
+            <th>Sender</th>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Have seen ?</th>
+        </tr>
+        </thead>
+        {% for helpraport in helpraports %}
+        <tr>
+            <td>{{ helpraport.sender }}</td>
+            <td><a href='{{ helpraport.id }}/2'>{{ helpraport.name }}</a></td>
+            <td>{{ helpraport.created_date }}</td>
+            <td>{{ helpraport.have_seen }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<div class="row col-lg-12 raportPanel">
+    <h3 class="h3 custom-center font-weight-bold"><u>Special Reports
+    </u></h3>
+    <table class="table table-hover table-borderless">
+        <thead class="thead-dark">
+        <tr>
+            <th>Sender</th>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Have seen ?</th>
+        </tr>
+        </thead>
+        {% for specialresourceraport in specialresourceraports %}
+        <tr>
+            <td>{{ specialresourceraport.sender }}</td>
+            <td><a href='{{ specialresourceraport.id }}/3'>{{ specialresourceraport.name }}</a></td>
+            <td>{{ specialresourceraport.created_date }}</td>
+            <td>{{ specialresourceraport.have_seen }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<div class="row col-lg-12 raportPanel">
+    <h3 class="h3 custom-center font-weight-bold"><u>Trade Reports
+    </u></h3>
+    <table class="table table-hover table-borderless">
+        <thead class="thead-dark">
+        <tr>
+            <th>Sender</th>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Have seen ?</th>
+        </tr>
+        </thead>
+        {% for tradeeraport in tradeeraports %}
+        <tr>
+            <td>{{ tradeeraport.sender }}</td>
+            <td><a href='{{ tradeeraport.id }}/4'>{{ tradeeraport.name }}</a></td>
+            <td>{{ tradeeraport.created_date }}</td>
+            <td>{{ tradeeraport.have_seen }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
