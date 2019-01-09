@@ -1,18 +1,19 @@
 {% extends 'messagess.html' %}
 
 {% block showMessages %}
-    
-        <h3>Received messagess</h3>
-        <table>
-            
+    <div class="row col-lg-12 messagePanel">
+        <h3 class="h3 custom-center font-weight-bold"><u>Received messagess
+        </u></h3>
+        <table class="table table-hover table-borderless">
+            <thead class="thead-dark">
             <tr>
                 <th scope="col">Author</th>
                 <th scope="col">Title</th>
                 <th scope="col">Date</th>
                 <th scope="col">Have seen?</th>
             </tr>
-            
-            
+            </thead>
+            <tbody>
             {% for message in messages %}
 
             <tr>
@@ -21,9 +22,8 @@
                 <td>{{ message.created_date }}</td>
                 <td>{{ message.have_seen }}</td>
             </tr>
-			
             {% endfor %}
-            
+            </tbody>
         </table>
     </div>
 {% endblock %}

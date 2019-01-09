@@ -1,0 +1,90 @@
+body {
+    background: url('../cityMap/assets/yellowBackground2.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+nav {
+    background: url('../cityMap/assets/yellowBackground3.png');
+    background-size: 100%;
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+    font-family: 'Lobster';
+}
+
+.custom-center {
+    margin: auto;
+}
+
+nav li:hover {
+    background: #785800;
+    border-radius: 25%;
+}
+
+nav li {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+th, td {
+    border-top: none;
+    font-weight: bold;
+}
+
+table {
+    font-family: arial, sans-serif;
+
+}
+
+.messagePanel {
+    background-color: rgb(223, 206, 162);
+    border: 15px solid transparent;
+    border-image: url('../cityMap/assets/border8.png') 30 round;
+    height: 100%;
+    margin-top: 20px;
+}
+
+.messagePanel h3 {
+    font-family: 'Lobster';
+    margin-bottom: 20px;
+
+}
+
+.messageInputLabel {
+    font-family: 'Lobster';
+    font-size: 1.2em;
+    color: black;
+}
+a, a:hover {
+    color: #9d6600;
+}
+
+.messageText a {
+    font-family: 'Lobster';
+    font-size: 1.2em;
+    color: black;
+}
+
+.messageText a:hover {
+    background: #785800;
+    border-radius: 25%;
+}
+
+input[type=submit] {
+    background-color: darkred;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Lobster';
+}
+
+input[type=submit]:hover {
+    background-color: #bc0101;
+}
+
+
+
