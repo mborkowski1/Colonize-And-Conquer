@@ -1,0 +1,27 @@
+{% extends 'premium.html' %}
+
+{% block showOptions %}
+    <table class="table table-hover table-borderless" style="margin: 10px;">
+        <thead class="thead-dark">
+        <tr>
+            <th>Time</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tr>
+            <td>1 month</td>
+            <td>{{premiumOptions.price_one_month}}</td>
+            <td><button onclick='zaplacZaPremium(1);'>Buy</button></td>
+        </tr>
+        <tr>
+            <td>6 months</td>
+            <td>{{premiumOptions.price_half_year}}</td>
+            <td><button onclick='zaplacZaPremium(2);'>Buy</button></td>
+        </tr>
+        <tr>
+            <td>1 year</td>
+            <td>{{premiumOptions.price_year}}</td>
+            <td><button onclick='zaplacZaPremium(3);'>Buy</button></td>
+        </tr>
+    </table>
+{% endblock %}
