@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'rankings/rankings.css' %}">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <script async src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+        <script async src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+        <title>CCPX</title>
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark center">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                <div class="custom-center">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/miasto/city_list/"><i class="fa fa-list-ul"></i> City List</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="../../mapa/"><i class="fa fa-globe"></i> Map</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="../../wiadomosci/"><i class="fa fa-envelope"></i> Messages</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="../../raporty/"><i class="fa fa-envelope-square"></i> Raports</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="../../sojusz/"><i class="fab fa-rebel"></i> Alliance</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="../../rankingi/"><i class="fa fa-align-justify"></i> Rankings</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="../../profil/"><i class="fa fa-user-circle"></i> Profil</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="../../premium/"><i class="fas fa-yen-sign"></i> Premium</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <h1 class="text-center" style="font-family:'Lobster'; margin: 20px;"><u>Top Players </u></h1>
+
+        <div id="rankings">
+            <div class="container">
+                <div class="row rankingsPanel">
+                    <div class="col-lg-12">
+                        <div v-show="!showUserDetails">
+                            <table class="table table-borderless  table-hover">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th @click="sort('username')">Username</th>
+                                        <th @click="sort('quantityOfCities')">Quantity of cities</th>
+                                        <th @click="sort('totalPoints')">Total points</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="user in sortedUsers">
+                                        <td @click="userDetails(user.id)">[[ user.username ]]</td>
+                                        <td>[[ countQuantityOfCities(user) ]]</td>
+                                        <td>[[ countTotalPoints(user) ]]</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="justify-content-center d-flex">
+                                <button @click="prevPage" :disabled="!(currentPage > 1)" >Previous</button>
+                                <p style="margin-left: 40px; margin-top: 40px;"> Current Page: [[ currentPage ]] </p>
+                                <button @click="nextPage" :disabled="!((currentPage * pageSize) < users.length)" >Next</button>
+                            </div>
+                        </div>
+                        <div v-show="showUserDetails">
+                            <h2 class="text-center">User Details</h2>
+                            <div class="justify-content-center d-flex mb-3">
+                                <img v-show="userProfileToShow.profile_pic === null" height="350" width="220" src="{% static 'alliance/defaultProfilePic.jpg' %}" alt="Profile Pic" class="profileImage" />
+                                <img v-show="userProfileToShow.profile_pic !== null" height="350" width="220" :src="userProfileToShow.profile_pic" alt="Profile Pic" class="profileImage" />
+                            </div>
+                            <table class="table table-borderless table-hover">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Username</th>
+                                        <th>Bio</th>
+                                        <th>Quantity of cities</th>
+                                        <th>Total points</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>[[ userToShowDetails.username ]]</td>
+                                        <td>[[ userProfileToShow.bio ]]</td>
+                                        <td>[[ countQuantityOfCities(userToShowDetails) ]]</td>
+                                        <td>[[ countTotalPoints(userToShowDetails) ]]</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h3 class="text-center">User Cities</h3>
+                            <table class="table table-borderless table-hover">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Points</th>
+                                        <th>PozX</th>
+                                        <th>PozY</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="city in userCitiesToShow">
+                                        <td>[[ city.city_name ]]</td>
+                                        <td>[[ city.points ]]</td>
+                                        <td>[[ city.pos_x ]]</td>
+                                        <td>[[ city.pos_y ]]</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="justify-content-center d-flex">
+                                <button type="button" class="btn btn-danger" @click="backToRankings">Back To Rankings</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            Vue.http.headers.common['X-CSRFToken'] = "{{ csrf_token }}";
+            const cityId = parseInt({{id_of_city}});
+
+            new Vue({
+                delimiters: ['[[', ']]'],
+                el: '#rankings',
+                data: {
+                    users: [],
+                    cities: [],
+                    profiles: [],
+                    currentSort: "totalPoints",
+                    currentSortDir: "desc",
+                    currentPage: 1,
+                    pageSize: 10,
+                    showUserDetails: false,
+                    userToShowDetails: '',
+                    userProfileToShow: '',
+                    userCitiesToShow: ''
+                },
+                mounted: function () {
+                    this.getData()
+                },
+                methods: {
+                    getData() {
+                        this.$http.get('/api/user/')
+                            .then(response => {
+                                this.users = response.data;
+                                console.log(response)
+                            })
+                            .catch(error => {
+                                console.error(error)
+                            });
+                        this.$http.get('/api/city')
+                            .then(response => {
+                                this.cities = response.data;
+                                console.log(response)
+                            })
+                            .catch(error => {
+                                console.error(error)
+                            });
+                        this.$http.get('/api/profile')
+                            .then(response => {
+                                this.profiles = response.data;
+                                console.log(response)
+                            })
+                            .catch(error => {
+                                console.error(error)
+                            });
+                    },
+                    countQuantityOfCities(user) {
+                        const userCities = this.cities.filter(city => city.city_owner === user.id);
+                        return userCities.length;
+                    },
+                    countTotalPoints(user) {
+                        const userCities = this.cities.filter(city => city.city_owner === user.id);
+                        let totalPoints = 0;
+                        userCities.forEach(city => totalPoints += city.points);
+                        return totalPoints;
+                    },
+                    sort(s) {
+                        if (s === this.currentSort) {
+                            this.currentSortDir = this.currentSortDir === 'desc' ? 'asc' : 'desc';
+                        }
+
+                        this.currentSort = s;
+                    },
+                    prevPage() {
+                        this.currentPage--;
+                    },
+                    nextPage() {
+                        this.currentPage++;
+                    },
+                    userDetails(userId) {
+                        this.showUserDetails = true;
+                        this.userToShowDetails = this.users.find(value => value.id === userId);
+                        this.userProfileToShow = this.profiles.find(value => value.user === userId);
+                        this.userCitiesToShow = this.cities.filter(city => city.city_owner === userId);
+                    },
+                    backToRankings() {
+                        this.showUserDetails = false;
+                        this.userToShowDetails = '';
+                        this.userProfileToShow = '';
+                    }
+                },
+                computed: {
+                    sortedUsers() {
+                        return this.users.sort((user1, user2) => {
+                            let modifier = 1;
+                            if (this.currentSortDir === 'desc') modifier = -1;
+                            if (this.currentSort === 'totalPoints') {
+                                const user1Cities = this.cities.filter(city => city.city_owner === user1.id);
+                                const user2Cities = this.cities.filter(city => city.city_owner === user2.id);
+                                let user1TotalPoints = 0;
+                                let user2TotalPoints = 0;
+                                user1Cities.forEach(city => user1TotalPoints += city.points);
+                                user2Cities.forEach(city => user2TotalPoints += city.points);
+                                if (user1TotalPoints < user2TotalPoints) return -1 * modifier;
+                                if (user1TotalPoints > user2TotalPoints) return 1 * modifier;
+                            }
+                            else if (this.currentSort === 'quantityOfCities') {
+                                const user1Cities = this.cities.filter(city => city.city_owner === user1.id);
+                                const user2Cities = this.cities.filter(city => city.city_owner === user2.id);
+                                const user1QuantityOfCities = user1Cities.length;
+                                const user2QuantityOfCities = user2Cities.length;
+                                if (user1QuantityOfCities < user2QuantityOfCities) return -1 * modifier;
+                                if (user1QuantityOfCities > user2QuantityOfCities) return 1 * modifier;
+                            }
+                            else if (this.currentSort === 'username') {
+                                if (user1.username < user2.username) return -1 * modifier;
+                                if (user1.username > user2.username) return 1 * modifier;
+                            }
+                            return 0;
+                        }).filter((row, index) => {
+                            let start = (this.currentPage - 1) * this.pageSize;
+                            let end = this.currentPage * this.pageSize;
+                            if (index >= start && index < end) return true;
+                        });
+                    }
+                }
+            });
+        </script>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>

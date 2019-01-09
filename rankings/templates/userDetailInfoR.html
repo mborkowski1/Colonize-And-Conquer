@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% load static %}
+</head>
+<body>
+            {% if not profil.profile_pic %}
+            <img height="350" width="220" src="{% static 'alliance/defaultProfilePic.jpg' %} "
+                 alt="Profile pic" class="profileImage"/>
+            {% else %}
+            <img height="350" width="220" src='{{ profil.profile_pic}}' alt="Profile pic" class="profileImage"/>
+            {% endif %}
+
+
+            <p class="text-center profileLabel"> Username: <span style="color: darkblue">{{ user.username }}</p>
+            <p class="text-center profileLabel">Bio: {{ profil.bio }}</p>
+
+            <table class="table table-borderless table-hover">
+                <thead class="thead-dark">
+                <th>id</th>
+                <th>Name</th>
+                <th>Points</th>
+                <th>PozX</th>
+                <th>PozY</th>
+                </thead>
+                {% for city in citys %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td><a href='{{ city.id }}'>{{ city.city_name }}</a></td>
+                    <td>{{ city.points }}</td>
+                    <td>{{ city.pos_x }}</td>
+                    <td>{{ city.pos_y }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+</body>
+</html> 
