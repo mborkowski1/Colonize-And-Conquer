@@ -23,6 +23,7 @@ urlpatterns = [
     path('', include('mainPage.urls')),
 	path('miasto/', include('cityMap.urls')),
 	path('mapa/', include('worldMap.urls')),
+	path('sojusz/', include('alliance.urls')),
 	path('admin/', admin.site.urls),
 	url(r'^oauth/', include('social_django.urls', namespace='social')),
 ]
