@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'social_django',
 	'mainPage',
 	'cityMap',
+	'worldMap',
 ]
 
 MIDDLEWARE = [
