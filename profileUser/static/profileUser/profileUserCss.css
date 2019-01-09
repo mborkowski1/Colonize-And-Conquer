@@ -66,7 +66,7 @@ input[type=submit] {
     border: none;
     color: white;
     padding: 15px 32px;
-    margin: 3px;
+    margin: 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -78,6 +78,14 @@ input[type=submit]:hover {
     background-color: #bc0101;
 }
 
+td{
+    width: 300px;
+        padding: 5px;
+
+}
+
+tr{
+}
 
 
 
