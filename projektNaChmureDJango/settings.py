@@ -26,10 +26,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'paypal.standard.ipn',
     'social_django',
-	'mainPage',
-	'cityMap',
-	'worldMap',
 	'alliance',
+	'cityMap',
+	'mainPage',
+	'messagess',
+	'rankings',
+	'raports',
+	'worldMap',
 ]
 
 MIDDLEWARE = [
