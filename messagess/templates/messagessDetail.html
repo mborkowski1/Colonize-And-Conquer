@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% load static %}
+</head>
+<body>
+            <p class="messageText"><a href="../napisz/"><u>New Message</u></a></p>
+            <p class="messageText"><a href="../"><u>Received Messages</u></a></p>
+            <p class="messageText"><a href="../wyslane/"><u>Your messages</u></a></p>
+        
+            <table class="table table-hover table-borderless">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Author: {{ message.author }}</th>
+                    <th>Title: {{ message.title }}</th>
+                    <th>Send: {{ message.created_date }}</th>
+                </tr>
+                </thead>
+            </table>
+</body>
+</html>
