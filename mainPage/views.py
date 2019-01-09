@@ -1,14 +1,14 @@
 from django.shortcuts import render, redirect
 from django.utils import timezone
-from .models import Post
+from .models import Post, SupportTicket
 from .models import Server
 from .models import CityPositions
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from .forms import ExtendedUserCreationForm, CommentForm, SupportTicketForm
 from django.http import HttpResponse
-#from cityMap.models import CityOwned, Housing, Farms, PowerPlant, Mines, Roads, TownHall, Barracks
-#from cityMap.models import Infantry, HInfantry, LTanks, HTanks, Motorized, Planes
+from cityMap.models import CityOwned, Housing, Farms, PowerPlant, Mines, Roads, TownHall, Barracks
+from cityMap.models import Infantry, HInfantry, LTanks, HTanks, Motorized, Planes
 
 
 def generate_basic_tables(request):
@@ -136,18 +136,23 @@ def show_forum(request):
 
 def show_support(request):
     form = SupportTicketForm()
-    if request.method == 'POST':
-        form = SupportTicketForm(request.POST)
+    if request.user.is_authenticated:
+        tickets = SupportTicket.objects.filter(author=request.user).order_by('created_date')
+        if request.method == 'POST':
+            form = SupportTicketForm(request.POST)
+            if form.is_valid():
+                formm = form.save(commit=False)
+                formm.author = request.user
+                formm.question_type = form.cleaned_data['question_type']
+                formm.save()
+                id_of_ticket = formm.id
+                return redirect(str(id_of_ticket))
+        return render(request, 'support.html', {'form': form, 'tickets': tickets})
+    else:
+        tickets = None
+        return render(request, 'support.html', {'form': form, 'tickets': tickets})
 
-        if form.is_valid():
-            formm = form.save(commit=False)
-            formm.author = request.user
-            formm.question_type = form.cleaned_data['question_type']
-            formm.save()
 
-    return render(request, 'support.html', {'form': form})
-
-	
 def show_ticket_details(request, id_of_ticket):
     ticket = SupportTicket.objects.get(id=id_of_ticket)
     form = CommentForm()
@@ -162,7 +167,7 @@ def show_ticket_details(request, id_of_ticket):
             form = CommentForm()
 
     return render(request, 'ticketDetail.html', {'ticket': ticket, 'form': form})
-	
+
 
 def show_faq(request):
     return render(request, 'faq.html')

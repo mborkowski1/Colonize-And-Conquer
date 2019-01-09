@@ -45,46 +45,48 @@
     </div>
 
     <div class="container infoPanel">
-		<div class=" col-lg-12 support">
-			{% if user.is_authenticated %}
+        <div class=" col-lg-12 support">
+            {% if user.is_authenticated %}
 
 
-			<h1>Ask a question: </h1>
-			<form class="site-from" action="" method="post">
-				{% csrf_token %}
-				<table>
+            <h1>Ask a question: </h1>
+            <form class="site-from" action="" method="post">
+                {% csrf_token %}
+                <table>
 
-					<tr>
-						{{ form.question_type }}
-					</tr>
-					<tr>
-						<td>World:</td>
-						<td><select class="field">
-								<option>Planet X</option>
-							</select></td>
-					</tr>
-					<tr>
-						<td>Messege:</td>
-						<td>{{ form.text }}</td>
-					</tr>
-				</table>
-				<input type="submit" value="Send" name="MessageContent">
-			</form>
+                    <tr>
+                        {{ form.question_type }}
+                    </tr>
+                    <tr>
+                        <td>World:</td>
+                        <td><select class="field">
+                            <option>Planet X</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>Messege:</td>
+                        <td>{{ form.text }}</td>
+                    </tr>
+                </table>
+                <input type="submit" value="Send" name="MessageContent">
+            </form>
 
-			<h1>Your Questions:</h1>
-			<div class="row col-lg-12 infoPanel">
-				{% for ticket in tickets %}
-				<div class="col-lg-12 announcementPost">
-					<h1><a href='{{ ticket.id }}'>{{ ticket.question_type }} {{ ticket.created_date }}</a></h1>
-				</div>
-				{% endfor %}
-			</div>
+            <h1>Your Questions:</h1>
+            <div class="row col-lg-12 infoPanel">
 
-			{% else %}
-			 <h1>You have to log in to ask a question.</h1>
-			{% endif %}
-		</div>
-	</div>
+                {% for ticket in tickets %}
+                <div class="col-lg-12 announcementPost">
+                    <h1><a href='{{ ticket.id }}'>{{ ticket.question_type }} {{ ticket.created_date }}</a></h1>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <h1>You have to log in to ask a question.</h1>
+    {% endif %}
+    </div>
+    </div>
 
 
     <footer>
