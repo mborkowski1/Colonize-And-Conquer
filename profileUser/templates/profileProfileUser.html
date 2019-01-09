@@ -15,10 +15,10 @@
     <title>CCPX</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" crossorigin="anonymous"></script>
     <script>
-    window.onload = function() {
-        jQuery('input[type=text]').blur();
-    };
-</script>
+        window.onload = function () {
+            jQuery('input[type=text]').blur();
+        };
+    </script>
 </head>
 <body>
 <div class="container">
@@ -73,14 +73,16 @@
                 <p class="profileLabel">Current image:</p>
                 {% if not profil.profile_pic %}
                 <img height="350" width="220" src="{% static 'profileUser/defaultProfilePic.jpg' %} "
-                         alt="Profile pic" class="profileImage"/>
+                     alt="Profile pic" class="profileImage"/>
                 {% else %}
-                <img height="350" width="220" src='{{ profil.profile_pic.url }}' alt="Profile pic" class="profileImage"/>
+                <img height="350" width="220" src='{{ profil.profile_pic.url }}' alt="Profile pic"
+                     class="profileImage"/>
                 {% endif %}
-                <p class="profileLabel">Change you avatar: {{ profile_form.profile_pic }}</p>
-                                <p>{{ profile_form.profile_pic.errors.as_text }}</p>
+                <p class="profileLabel" style="margin-top: 10px;">Change you avatar: {{ profile_form.profile_pic }}</p>
+                <p>{{ profile_form.profile_pic.errors.as_text }}</p>
 
-                <p class="profileLabel">Change your bio:</p><p> {{ profile_form.bio }}</p>
+                <p class="profileLabel">Change your bio:</p>
+                <p> {{ profile_form.bio }}</p>
                 <p>{{ profile_form.bio.errors.as_text }}</p>
 
                 <input type="submit" value="Change" name="change_profil">
@@ -89,18 +91,36 @@
 
         <div class="col-2"></div>
         <div class="col-10 profilePanel text-center">
-            <form class="site-from" action="" method="post">
-                {% csrf_token %}
-                <p class="profileLabel">After change the game will logout you.</p>
-                <p class="profileLabel">Change your password:</p>
-                <p>{{ password_form.old_password.errors.as_text }}</p>
-                <p class="profileLabel">Old Password: {{ password_form.old_password }}</p>
-                <p>{{ password_form.new_password1.errors.as_text }}</p>
-                <p class="profileLabel">New Password: {{ password_form.new_password1 }}</p>
-                <p>{{ password_form.new_password2.errors.as_text }}</p>
-                <p class="profileLabel">Repeat new password: {{ password_form.new_password2 }}</p>
-                <input type="submit" value="Change" name="change_password">
-            </form>
+            <div class="custom-center">
+                <form class="site-from" action="" method="post">
+                    {% csrf_token %}
+
+                    <p class="profileLabel">After change the game will logout you.</p>
+                    <p class="profileLabel">Change your password:</p>
+                    <table class="custom-center">
+
+                        <tr>
+                            <td><span class="profileLabel">Old Password:</span></td>
+                            <td>{{ password_form.old_password }}</td>
+                        </tr>
+                        <tr><span>{{ password_form.old_password.errors.as_text }}</span></tr>
+
+                        <tr>
+                            <td><span class="profileLabel">New Password:</span></td>
+                            <td> {{ password_form.new_password1 }}</td>
+                        </tr>
+                        <tr><span>{{ password_form.new_password1.errors.as_text }}</span></tr>
+
+                        <tr>
+                            <td><span class="profileLabel">Repeat new password:</span></td>
+                            <td> {{ password_form.new_password2 }}</td>
+                        </tr>
+                        <tr><span>{{ password_form.new_password2.errors.as_text }}</span></tr>
+
+                    </table>
+                    <input type="submit" value="Change" name="change_password">
+                </form>
+            </div>
         </div>
 
         <div class="col-2"></div>
