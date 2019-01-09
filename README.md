@@ -21,7 +21,9 @@ $ python manage.py makemigrations
 $ python manage.py migrate
 $ python manage.py runserver
 ```
-```gcloud shell
+### Installation gcloud shell
+
+```sh
 $ cd colonize-and-conquer
 $ pip install -r requirements.txt
 $ ./cloud_sql_proxy -instances=solwit-pjatk-arc-2018-gr1:europe-west1:test1=tcp:3306
