@@ -1,0 +1,17 @@
+{% extends 'profileUser.html' %}
+{% load static %}
+{% block showProfile %}
+<div class="col-lg-12 text-center">
+    {% if not profil.profile_pic %}
+    <img height="350" width="220" src="{% static 'profileUser/defaultProfilePic.jpg' %} " alt="Profile pic" class="profileImage"/>
+    {% else %}
+    <img height="350" width="220" src='{{ profil.profile_pic }}' alt="Profile pic" class="profileImage"/>
+    {% endif %}
+    <p class="profileLabel">Username: <span style="color: darkblue">{{ user.username }}</span></p>
+    <p class="profileLabel">Alliance: <span style="color: darkblue">{{ profil.alliance }}</span></p>
+    <p class="profileLabel">E-mail: <span style="color: darkblue">{{ user.email }}</span></p>
+</div>
+<div class="col-lg-12 text-center">
+    <p class="profileLabel">Bio: <span style="color: darkblue">{{ profil.bio }}</span></p>
+</div>
+{% endblock %}
