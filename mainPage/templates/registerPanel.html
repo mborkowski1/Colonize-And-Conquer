@@ -56,7 +56,6 @@
 
     <div class="container">
         <nav class="navbar navbar-expand-md navbar-dark center">
-
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -67,18 +66,11 @@
                         <li class="nav-item active">
                             <a class="nav-link " href="../"><i class="fas fa-home"></i> Home</a>
                         </li>
-                        <li class="nav-item active language dropdown">
-                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false"><i class="fa fa-language"></i> Language</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#"><img src="{% static 'mainPage/gb.png' %}"> English</a>
-                            </div>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="../forum/"><i class="fab fa-ioxhost"></i> Forum</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="../forum/"><i class="fa fa-ioxhost"></i> Forum</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="../support/"><i class="fa fa-question-circle"></i> Support</a>
+                            <a class="nav-link" href="../support/"><i class="fas fa-question-circle"></i> Support</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link " href="../faq/"><i class="fas fa-book"></i> FAQ</a>
@@ -138,8 +130,8 @@
                         <input type="submit" value="Signup" name="SignUpForm">
                         <p>Or register with:</p>
                         <div class="social-buttons">
-                            <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-fb" style="width:100px"><i class="fa fa-facebook"></i> Facebook</a>
-                            <a href="{% url 'social:begin' 'github' %}" class="btn btn-gh" style="width:100px"><i class="fa fa-github"></i>GitHub</a>
+                            <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-fb" style="width:100px"><i class="fab fa-facebook"></i> Facebook</a>
+                            <a href="{% url 'social:begin' 'github' %}" class="btn btn-gh" style="width:100px"><i class="fab fa-github"></i>GitHub</a>
                         </div>
                     </form>
                 </div>
@@ -156,7 +148,6 @@
                     <h1>login</h1>
                     {% endblock %}
                     {% endif %}
-
                 </div>
             </div>
             <div class="row col-lg-12 infoPanel">
@@ -175,10 +166,10 @@
             <div class="row">
                 <ul class="list-inline custom-center">
                     <li class="list-inline-item">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
                     </li>
                 </ul>
             </div>
