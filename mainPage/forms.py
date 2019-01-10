@@ -28,7 +28,6 @@ class SupportTicketForm(forms.ModelForm):
         fields = ['text']
 
 
-
 class UniqueUserEmailField(forms.EmailField):
     def validate(self, value):
         super(forms.EmailField, self).validate(value)

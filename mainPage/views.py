@@ -141,11 +141,11 @@ def show_support(request):
         if request.method == 'POST':
             form = SupportTicketForm(request.POST)
             if form.is_valid():
-                formm = form.save(commit=False)
-                formm.author = request.user
-                formm.question_type = form.cleaned_data['question_type']
-                formm.save()
-                id_of_ticket = formm.id
+                form = form.save(commit=False)
+                form.author = request.user
+                form.question_type = form.cleaned_data['question_type']
+                form.save()
+                id_of_ticket = form.id
                 return redirect(str(id_of_ticket))
         return render(request, 'support.html', {'form': form, 'tickets': tickets})
     else:
