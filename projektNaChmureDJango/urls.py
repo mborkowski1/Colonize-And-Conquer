@@ -18,14 +18,24 @@ from django.conf.urls import url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from .routers import router
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('', include('mainPage.urls')),
-	path('miasto/', include('cityMap.urls')),
-	path('mapa/', include('worldMap.urls')),
-	path('sojusz/', include('alliance.urls')),
-	path('admin/', admin.site.urls),
-	url(r'^oauth/', include('social_django.urls', namespace='social')),
+    path('miasto/', include('cityMap.urls')),
+    path('mapa/', include('worldMap.urls')),
+    path('wiadomosci/', include('messagess.urls')),
+    path('raporty/', include('raports.urls')),
+    path('sojusz/', include('alliance.urls')),
+    path('premium/', include('premium.urls', namespace='payment')),
+    path('profil/', include('profileUser.urls')),
+    path('api/', include(router.urls)),
+    path('rankingi/', include('rankings.urls')),
+    path('kontakt/', include('kontakt.urls')),
+    path('test/', include('scheduleTasks.urls')),
+    url(r'^paypal/', include('paypal.standard.ipn.urls')),
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
 ]
 
 if settings.DEBUG:

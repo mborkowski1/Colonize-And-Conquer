@@ -28,10 +28,14 @@ INSTALLED_APPS = [
     'social_django',
 	'alliance',
 	'cityMap',
+	'kontakt',
 	'mainPage',
 	'messagess',
+	'premium',
+	'profileUser',
 	'rankings',
 	'raports',
+	'scheduleTasks',
 	'worldMap',
 ]
 

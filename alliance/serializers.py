@@ -8,7 +8,7 @@ class AllianceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Alliance
-        fields = ('name', 'creator', 'vice_creator', 'alliance_logo', 'alliance_bio', 'members')
+        fields = ('id', 'name', 'creator', 'vice_creator', 'alliance_logo', 'alliance_bio', 'members')
 
 
 class PostForumSerializer(serializers.ModelSerializer):

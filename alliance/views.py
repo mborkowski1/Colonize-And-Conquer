@@ -141,7 +141,8 @@ def show_your_alliance(request):
     profile = Profile.objects.get(user=user)
     if profile.alliance is not None:
         alliance = Alliance.objects.get(id=profile.alliance.id)
-        return render(request, 'indexAlliance.html', {'alliance': alliance})
+        alliance_have = 0
+        return render(request, 'indexAlliance.html', {'alliance': alliance, 'alliance_have': alliance_have})
     else:
         if request.method == 'POST':
             form = CreateAllianceForm(request.POST, request.FILES)
@@ -151,20 +152,27 @@ def show_your_alliance(request):
                 alliance.save()
                 alliance.members.add(request.user)
                 alliance.save()
+                forum = Forum(owner=alliance)
+                forum.save()
                 profile.alliance = alliance
                 profile.save()
-                return render(request, 'indexAlliance.html', {'alliance': alliance})
-            alliance = 1
-            return render(request, 'indexAlliance.html', {'form': form, 'alliance': alliance})
+                alliance_have = 0
+            return render(request, 'indexAlliance.html', {'alliance': alliance, 'alliance_have': alliance_have})
         alliance = 1
+        alliance_have = 1
         form = CreateAllianceForm()
-        return render(request, 'indexAlliance.html', {'form': form, 'alliance': alliance})
+        return render(request, 'indexAlliance.html', {'form': form, 'alliance': alliance, 'alliance_have': alliance_have})
 
 
 @login_required(login_url=main_page)
 def alliance_list_page(request):
     alliances = Alliance.objects.all()
-    return render(request, 'allianceList.html', {'alliances': alliances})
+    alliance_have = 1
+    user = request.user
+    profile = Profile.objects.get(user=user)
+    if profile.alliance is not None:
+        alliance_have = 0
+    return render(request, 'allianceList.html', {'alliances': alliances, 'alliance_have': alliance_have})
 
 
 @login_required(login_url=main_page)

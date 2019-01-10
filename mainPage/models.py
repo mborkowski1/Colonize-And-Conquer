@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-#import alliance.models
+import alliance.models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
@@ -55,7 +55,7 @@ class Server(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    #alliance = models.ForeignKey(alliance.models.Alliance, on_delete=models.CASCADE, blank=True, null=True)
+    alliance = models.ForeignKey(alliance.models.Alliance, on_delete=models.CASCADE, blank=True, null=True)
     bio = models.TextField(null=True, blank=True)
     profile_pic = models.FileField(null=True, blank=True)
     is_premium = models.BooleanField(default=False)

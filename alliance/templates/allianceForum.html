@@ -72,21 +72,21 @@
                         <h3>Choose Forum</h3>
                         <div class="btn-toolbar" role="toolbar">
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-danger" v-for="subforum in subforums" @click="chooseForum(subforum.title)">[[ subforum.title ]]</button>
+                                <button type="button" class="btn btn-primary" v-for="subforum in subforums" @click="chooseForum(subforum.title)">[[ subforum.title ]]</button>
                             </div>
                         </div>
                         <form class="my-3" @submit.prevent="addNewForum" v-show="userIsForumCreatorOrViceCreator">
                             <div class="form-group">
                                 <input type="text" v-model="newForumName" class="form-control" placeholder="New Forum Name" required>
                             </div>
-                            <button type="submit" class="btn btn-danger">Add New Forum</button>
+                            <button type="submit" class="btn btn-primary">Add New Forum</button>
                         </form>
                     </div>
                     <div v-show="forumHasBeenChoosen">
                         <h3>Choose Topic</h3>
                         <div class="btn-toolbar" role="toolbar">
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-danger" v-for="topic in topics" @click="chooseTopic(topic.title)">[[ topic.title ]]</button>
+                                <button type="button" class="btn btn-primary" v-for="topic in topics" @click="chooseTopic(topic.title)">[[ topic.title ]]</button>
                             </div>
                         </div>
                         <div v-show="!topicHasBeenChoosen">
@@ -94,25 +94,25 @@
                                 <div class="form-group">
                                     <input type="text" v-model="newTopicName" class="form-control" placeholder="New Topic Name" required>
                                 </div>
-                                <button type="submit" class="btn btn-danger">Add New Topic</button>
+                                <button type="submit" class="btn btn-primary">Add New Topic</button>
                             </form>
                         </div>
                         <div v-show="topicHasBeenChoosen">
-                            <h4 class="allianceLabel">Posts For [[ currentTopic.title | capitalize ]]</h4>
-                            <div class="card mb-3 bg-dark" v-for="post in posts">
-                                <div class="card-header d-flex justify-content-between"><span class="forumLabel">Author: [[ post.author_name ]]</span><span class="forumLabel">Created Date: [[ post.created_date | formatDate ]]</span></div>
+                            <h4>Posts For [[ currentTopic.title | capitalize ]]</h4>
+                            <div class="card mb-3" v-for="post in posts">
+                                <div class="card-header d-flex justify-content-between"><span>Author: [[ post.author_name ]]</span><span>Created Date: [[ post.created_date | formatDate ]]</span></div>
                                 <div class="card-body">
-                                    <p class="card-text forumLabel">[[ post.text ]]</p>
+                                    <p class="card-text">[[ post.text ]]</p>
                                 </div>
                             </div>
                             <form class="mt-3" @submit.prevent="addNewPost">
                                 <div class="form-group">
                                     <textarea v-model="newPostMessage" class="form-control" placeholder="New Post Message" rows="5" required></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-danger">Add New Post</button>
+                                <button type="submit" class="btn btn-primary">Add New Post</button>
                             </form>
                         </div>
-                        <button type="button" @click="backToForumsList" class="btn btn-danger my-3">Back To Forums List</button>
+                        <button type="button" @click="backToForumsList" class="btn btn-primary my-3">Back To Forums List</button>
                     </div>
                 </div>
             </div>

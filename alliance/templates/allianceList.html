@@ -66,9 +66,11 @@
         <div class="col-lg-2 alliancePanel text-center">
             <p class="allianceText"><a href="../"><u>Your alliance</u></a></p>
             <p class="allianceText"><a href=""><u>Alliance list</u></a></p>
-            <p class="allianceText"><a href="../edycjaSojuszu"><u>Edit your alliance</u></a></p>
-            <p class="allianceText"><a href="../zaprosDoSojuszu"><u>Invite to your alliance</u></a></p>
-        </div>
+			{% if alliance_have == 0 %}
+				<p class="allianceText"><a href="../edycjaSojuszu"><u>Edit your alliance</u></a></p>
+				<p class="allianceText"><a href="../zaprosDoSojuszu"><u>Invite to your alliance</u></a></p>
+			{% endif %}
+		</div>
         <div class="col-lg-10 alliancePanel text-center">
             <table class="table table-hover table-borderless">
                 <thead class="thead-dark">

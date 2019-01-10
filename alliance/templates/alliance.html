@@ -62,8 +62,10 @@
         <div class="col-lg-2 alliancePanel text-center">
             <p class="allianceText"><a href=""><u>Your alliance</u></a></p>
             <p class="allianceText"><a href="listOfAlliances/"><u>Alliance List</u></a></p>
+            {% if alliance_have == 0 %}
             <p class="allianceText"><a href="edycjaSojuszu"><u>Edit your alliance</u></a></p>
             <p class="allianceText"><a href="zaprosDoSojuszu"><u>Invite to your alliance</u></a></p>
+            {% endif %}
         </div>
         <div class="col-lg-10 text-center alliancePanel" style="height: 100%;">
             {% if alliance == 1%}

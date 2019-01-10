@@ -72,7 +72,7 @@ def main_page(request):
             form = ExtendedUserCreationForm(request.POST)
             if form.is_valid():
                 user = form.save()
-                login(request, user)
+                login(request, user, backend='django.contrib.auth.backends.ModelBackend')
                 return redirect('miasto/')
             login_form = AuthenticationForm()
             posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -84,7 +84,7 @@ def main_page(request):
             posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
             if login_form.is_valid():
                 user = login_form.get_user()
-                login(request, user)
+                login(request, user, backend='django.contrib.auth.backends.ModelBackend')
                 servers = Server.objects.all()
                 return render(request, 'index.html',
                               {'servers': servers, 'posts': posts, 'form': form, 'login_form': login_form})
