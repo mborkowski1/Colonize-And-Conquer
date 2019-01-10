@@ -17,7 +17,6 @@
   <body>
       <div class="container">
           <nav class="navbar navbar-expand-lg navbar-dark center">
-
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -26,35 +25,35 @@
                   <div class="collapse navbar-collapse" id="navbarNav">
                       <ul class="navbar-nav">
                           <li class="nav-item active">
-                              <a class="nav-link" href="/miasto/city_list/  "><i class="fa fa-list-ul"></i> City List</a>
+                              <a class="nav-link" href="/miasto/city_list/  "><i class="fas fa-list-ul"></i> City List</a>
                           </li>
                           <li class="nav-item active">
-                              <a class="nav-link" href="../../mapa/"><i class="fa fa-globe"></i> Map</a>
+                              <a class="nav-link" href="../../mapa/"><i class="fas fa-globe"></i> Map</a>
                           </li>
                           <li class="nav-item active">
-                              <a class="nav-link" href="../../wiadomosci/"><i class="fa fa-envelope"></i> Messages</a>
+                              <a class="nav-link" href="../../wiadomosci/"><i class="fas fa-envelope"></i> Messages</a>
                           </li>
                           <li class="nav-item active">
-                              <a class="nav-link" href="../../raporty/"><i class="fa fa-envelope-square"></i> Raports</a>
+                              <a class="nav-link" href="../../raporty/"><i class="fas fa-envelope-square"></i> Raports</a>
                           </li>
                           <li class="nav-item active">
                               <a class="nav-link" href="../../sojusz/"><i class="fab fa-rebel"></i> Alliance</a>
                           </li>
                           <li class="nav-item active">
-                              <a class="nav-link" href="../../rankingi/"><i class="fa fa-align-justify"></i> Rankings</a>
+                              <a class="nav-link" href="../../rankingi/"><i class="fas fa-align-justify"></i> Rankings</a>
                           </li>
                           <li class="nav-item active">
-                              <a class="nav-link" href="../../profil/"><i class="fa fa-user-circle"></i> Profil</a>
+                              <a class="nav-link" href="../../profil/"><i class="fas fa-user-circle"></i> Profil</a>
                           </li>
                           <li class="nav-item active">
                               <a class="nav-link" href="../../premium/"><i class="fas fa-yen-sign"></i> Premium</a>
                           </li>
-
                       </ul>
                   </div>
               </div>
           </nav>
       </div>
+
       <h1 class="text-center" style="font-family:'Lobster'; margin: 20px;"><u>Barracks </u></h1>
 
       <div id="barracks">
@@ -80,7 +79,7 @@
                                       <form @submit.prevent="AddInfantry" class="input-group">
                                           <input type="number" class="form-control" v-model.number="infantryToAdd"
                                                  placeholder="Add Infantry" min="0"/>
-                                          <button type="submit" class="btn"><i class="fa fa-plus-circle"></i></button>
+                                          <button type="submit" class="btn"><i class="fas fa-plus-circle"></i></button>
                                       </form>
                                       <div v-show="inputMessageInfantry" id="infantryRequirementMessage"
                                            class="font-weight-bold small text-info"></div>
@@ -102,7 +101,7 @@
                                       <form @submit.prevent="AddHeavyInfantry" class="input-group">
                                           <input type="number" class="form-control" v-model.number="hinfantryToAdd"
                                                  placeholder="Add Heavy Infantry" min="0"/>
-                                          <button type="submit" class="btn"><i class="fa fa-plus-circle"></i></button>
+                                          <button type="submit" class="btn"><i class="fas fa-plus-circle"></i></button>
                                       </form>
                                       <div v-show="inputMessageHInfantry" id="hinfantryRequirementMessage"
                                            class="font-weight-bold small text-info"></div>
@@ -124,7 +123,7 @@
                                       <form @submit.prevent="AddPlanes" class="input-group">
                                           <input type="number" class="form-control" v-model.number="planesToAdd"
                                                  placeholder="Add Planes" min="0"/>
-                                          <button type="submit" class="btn "><i class="fa fa-plus-circle"></i></button>
+                                          <button type="submit" class="btn "><i class="fas fa-plus-circle"></i></button>
                                       </form>
                                       <div v-show="inputMessagePlanes" id="planesRequirementMessage"
                                            class="font-weight-bold small text-info"></div>
@@ -147,7 +146,7 @@
                                       <form @submit.prevent="AddLightTanks" class="input-group">
                                           <input type="number" class="form-control" v-model.number="ltanksToAdd"
                                                  placeholder="Add Light Tanks" min="0"/>
-                                          <button type="submit" class="btn "><i class="fa fa-plus-circle"></i></button>
+                                          <button type="submit" class="btn "><i class="fas fa-plus-circle"></i></button>
                                       </form>
                                       <div v-show="inputMessageLTanks" id="ltanksRequirementMessage"
                                            class="font-weight-bold small text-info"></div>
@@ -170,7 +169,7 @@
                                       <form @submit.prevent="AddHeavyTanks" class="input-group">
                                           <input type="number" class="form-control" v-model.number="htanksToAdd"
                                                  placeholder="Add Heavy Tanks" min="0"/>
-                                          <button type="submit" class="btn "><i class="fa fa-plus-circle"></i></button>
+                                          <button type="submit" class="btn "><i class="fas fa-plus-circle"></i></button>
                                       </form>
                                       <div v-show="inputMessageHTanks" id="htanksRequirementMessage"
                                            class="font-weight-bold small text-info"></div>
@@ -193,7 +192,7 @@
                                       <form @submit.prevent="AddMotorized" class="input-group">
                                           <input type="number" class="form-control" v-model.number="motorizedToAdd"
                                                  placeholder="Add Motorized" min="0"/>
-                                          <button type="submit" class="btn "><i class="fa fa-plus-circle"></i></button>
+                                          <button type="submit" class="btn "><i class="fas fa-plus-circle"></i></button>
                                       </form>
                                       <div v-show="inputMessageMotorized" id="motorizedRequirementMessage"
                                            class="font-weight-bold small text-info"></div>
