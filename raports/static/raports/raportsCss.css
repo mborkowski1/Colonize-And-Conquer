@@ -1,14 +1,14 @@
 body {
-    background: url('../cityMap/assets/yellowBackground2.png') no-repeat center center fixed;
+    background: url('/cityMap/static/cityMap/assets/yellowBackground2.png') no-repeat center center fixed;
     background-size: cover;
 }
 
 nav {
-    background: url('../cityMap/assets/yellowBackground3.png');
+    background: url('/cityMap/static/cityMap/assets/yellowBackground3.png');
     background-size: 100%;
     border-bottom-left-radius: 20%;
     border-bottom-right-radius: 20%;
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
 }
 
 .custom-center {
@@ -29,7 +29,7 @@ a, a:hover {
     color: #9d6600;
 }
 .raportPanel h3 {
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
     margin-top: 10px;
     margin-bottom: 20px;
 
@@ -38,7 +38,7 @@ a, a:hover {
 .raportPanel {
     background-color: rgb(223, 206, 162);
     border: 15px solid transparent;
-    border-image: url('../cityMap/assets/border8.png') 30 round;
+    border-image: url('/cityMap/static/cityMap/assets/border8.png') 30 round;
     margin-left: 1px;
     height: 100%;
     margin-bottom: 10px;
@@ -46,7 +46,7 @@ a, a:hover {
 }
 
 .raportText a {
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
     font-size: 1.2em;
     color: black;
 }
@@ -64,8 +64,8 @@ th, td {
 
 table {
     font-family: arial, sans-serif;
-
 }
+
 button {
     background-color: #8b0000;
     border: none;
@@ -76,13 +76,12 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
 }
 
 button:hover {
     background-color: #bc0101;
 }
-
 
 input[type=button] {
     margin-top: 30px;
@@ -96,14 +95,10 @@ input[type=button] {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    font-family: 'Lobster';
-
+    font-family: 'Lobster', sans-serif;
 }
 
 input[type=button]:hover {
     background-color: #bc0101;
     cursor: pointer;
 }
-
-
-

@@ -56,7 +56,6 @@ header a:hover{
 }
 
 @media (max-width: 850px) {
-
     header h3{
         float: none;
         text-align: center;
@@ -66,5 +65,4 @@ header a:hover{
         margin-top: 20px;
         float: none;
     }
-
 }

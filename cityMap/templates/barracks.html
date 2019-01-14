@@ -2,18 +2,12 @@
 <html lang="en">
   <head>
       {% load static %}
-        <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'cityMap/barracks.css' %}">
         <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-              integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
       <title>CCPX</title>
@@ -58,7 +52,7 @@
           </nav>
       </div>
 
-      <h1 class="text-center" style="font-family:'Lobster'; margin: 20px;"><u>Barracks </u></h1>
+      <h1 class="text-center" style="font-family: 'Lobster', sans-serif; margin: 20px;"><u>Barracks </u></h1>
 
       <div id="barracks">
           <div id="wrapper" class="custom-center">
@@ -81,14 +75,12 @@
                                   <td>[[ city.infantry ]]</td>
                                   <td>
                                       <form @submit.prevent="AddInfantry" class="input-group">
-                                          <input type="number" class="form-control" v-model.number="infantryToAdd"
-                                                 placeholder="Add Infantry" min="0"/>
+                                          <input type="number" class="form-control" v-model.number="infantryToAdd" placeholder="Add Infantry" min="0"/>
                                           <button type="submit" class="btn"><i class="fas fa-plus-circle"></i></button>
                                       </form>
                                       <div v-show="inputMessageInfantry" id="infantryRequirementMessage"
                                            class="font-weight-bold small text-info"></div>
-                                      <div v-show="errorAddInfantry" class="font-weight-bold small text-danger">You don't
-                                          have enough resources!
+                                      <div v-show="errorAddInfantry" class="font-weight-bold small text-danger">You don't have enough resources!
                                       </div>
                                   </td>
                                   <td>
@@ -103,14 +95,12 @@
                                   <td>[[ city.hinfantry ]]</td>
                                   <td>
                                       <form @submit.prevent="AddHeavyInfantry" class="input-group">
-                                          <input type="number" class="form-control" v-model.number="hinfantryToAdd"
-                                                 placeholder="Add Heavy Infantry" min="0"/>
+                                          <input type="number" class="form-control" v-model.number="hinfantryToAdd" placeholder="Add Heavy Infantry" min="0"/>
                                           <button type="submit" class="btn"><i class="fas fa-plus-circle"></i></button>
                                       </form>
                                       <div v-show="inputMessageHInfantry" id="hinfantryRequirementMessage"
                                            class="font-weight-bold small text-info"></div>
-                                      <div v-show="errorAddHInfantry" class="font-weight-bold small text-danger">You don't
-                                          have enough resources!
+                                      <div v-show="errorAddHInfantry" class="font-weight-bold small text-danger">You don't have enough resources!
                                       </div>
                                   </td>
                                   <td>
@@ -125,14 +115,11 @@
                                   <td>[[ city.planes ]]</td>
                                   <td>
                                       <form @submit.prevent="AddPlanes" class="input-group">
-                                          <input type="number" class="form-control" v-model.number="planesToAdd"
-                                                 placeholder="Add Planes" min="0"/>
+                                          <input type="number" class="form-control" v-model.number="planesToAdd" placeholder="Add Planes" min="0"/>
                                           <button type="submit" class="btn "><i class="fas fa-plus-circle"></i></button>
                                       </form>
-                                      <div v-show="inputMessagePlanes" id="planesRequirementMessage"
-                                           class="font-weight-bold small text-info"></div>
-                                      <div v-show="errorAddPlanes" class="font-weight-bold small text-danger">You don't have
-                                          enough resources!
+                                      <div v-show="inputMessagePlanes" id="planesRequirementMessage" class="font-weight-bold small text-info"></div>
+                                      <div v-show="errorAddPlanes" class="font-weight-bold small text-danger">You don't have enough resources!
                                       </div>
                                   </td>
                                   <td>
@@ -148,14 +135,11 @@
                                   <td>[[ city.ltanks ]]</td>
                                   <td>
                                       <form @submit.prevent="AddLightTanks" class="input-group">
-                                          <input type="number" class="form-control" v-model.number="ltanksToAdd"
-                                                 placeholder="Add Light Tanks" min="0"/>
+                                          <input type="number" class="form-control" v-model.number="ltanksToAdd" placeholder="Add Light Tanks" min="0"/>
                                           <button type="submit" class="btn "><i class="fas fa-plus-circle"></i></button>
                                       </form>
-                                      <div v-show="inputMessageLTanks" id="ltanksRequirementMessage"
-                                           class="font-weight-bold small text-info"></div>
-                                      <div v-show="errorAddLTanks" class="font-weight-bold small text-danger">You don't have
-                                          enough resources!
+                                      <div v-show="inputMessageLTanks" id="ltanksRequirementMessage" class="font-weight-bold small text-info"></div>
+                                      <div v-show="errorAddLTanks" class="font-weight-bold small text-danger">You don't have enough resources!
                                       </div>
                                   </td>
                                   <td>
@@ -171,14 +155,11 @@
                                   <td>[[ city.htanks ]]</td>
                                   <td>
                                       <form @submit.prevent="AddHeavyTanks" class="input-group">
-                                          <input type="number" class="form-control" v-model.number="htanksToAdd"
-                                                 placeholder="Add Heavy Tanks" min="0"/>
+                                          <input type="number" class="form-control" v-model.number="htanksToAdd" placeholder="Add Heavy Tanks" min="0"/>
                                           <button type="submit" class="btn "><i class="fas fa-plus-circle"></i></button>
                                       </form>
-                                      <div v-show="inputMessageHTanks" id="htanksRequirementMessage"
-                                           class="font-weight-bold small text-info"></div>
-                                      <div v-show="errorAddHTanks" class="font-weight-bold small text-danger">You don't have
-                                          enough resources!
+                                      <div v-show="inputMessageHTanks" id="htanksRequirementMessage" class="font-weight-bold small text-info"></div>
+                                      <div v-show="errorAddHTanks" class="font-weight-bold small text-danger">You don't have enough resources!
                                       </div>
                                   </td>
                                   <td>
@@ -194,14 +175,11 @@
                                   <td>[[ city.motorized ]]</td>
                                   <td>
                                       <form @submit.prevent="AddMotorized" class="input-group">
-                                          <input type="number" class="form-control" v-model.number="motorizedToAdd"
-                                                 placeholder="Add Motorized" min="0"/>
+                                          <input type="number" class="form-control" v-model.number="motorizedToAdd" placeholder="Add Motorized" min="0"/>
                                           <button type="submit" class="btn "><i class="fas fa-plus-circle"></i></button>
                                       </form>
-                                      <div v-show="inputMessageMotorized" id="motorizedRequirementMessage"
-                                           class="font-weight-bold small text-info"></div>
-                                      <div v-show="errorAddMotorized" class="font-weight-bold small text-danger">You don't
-                                          have enough resources!
+                                      <div v-show="inputMessageMotorized" id="motorizedRequirementMessage" class="font-weight-bold small text-info"></div>
+                                      <div v-show="errorAddMotorized" class="font-weight-bold small text-danger">You don't have enough resources!
                                       </div>
                                   </td>
                                   <td>
@@ -537,6 +515,8 @@
               }
           });
       </script>
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>

@@ -9,7 +9,7 @@
 }
 
 #form {
-    background-image:url('../assets/background.jpg');
+    background-image:url('/cityMap/static/cityMap/assets/background.png');
 	background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -18,7 +18,7 @@
 .opisGlowny {
     margin-top: 10px;
     padding-bottom: 10px;
-    background-color: rgb(12, 98, 145, 0.9);
+    background-color: rgba(12, 98, 145, 0.9);
     border-radius: 25px;
 }
 
@@ -35,4 +35,3 @@ th, td {
   background: #ddd;
   border-bottom: 2px solid blue;
 }
-

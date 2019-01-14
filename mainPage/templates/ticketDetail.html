@@ -3,23 +3,16 @@
 <head>
     {% load static %}
     <meta charset="utf-8">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'mainPage/mainPageCss.css' %}" type="text/css">
     <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <title>CCPX</title>
 </head>
 <body>
     <div class="container">
         <nav class="navbar navbar-expand-md navbar-dark center">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="custom-center">
@@ -29,13 +22,13 @@
                             <a class="nav-link " href="../../"><i class="fas fa-home"></i> Home</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="../../forum"><i class="fa fa-ioxhost"></i> Forum</a>
+                            <a class="nav-link" href="../../forum"><i class="fab fa-ioxhost"></i> Forum</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="../"><i class="fa fa-question-circle"></i> Support</a>
+                            <a class="nav-link" href="../"><i class="fas fa-question-circle"></i> Support</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link " href="../../faq"><i class="fa fa-book"></i> FAQ</a>
+                            <a class="nav-link " href="../../faq"><i class="fas fa-book"></i> FAQ</a>
                         </li>
                     </ul>
                 </div>
@@ -69,56 +62,46 @@
         </div>
     </div>
 
-<div class="footer">
-    <footer>
-        <div class="container">
-            <div class="row">
-                <ul class="list-inline custom-center">
-                    <li class="list-inline-item">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
-                    </li>
-                </ul>
+    <div class="footer">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <ul class="list-inline custom-center">
+                        <li class="list-inline-item">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="row">
+                    <ul class="menu list-inline custom-center">
+                        <li class="list-inline-item">
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="/kontakt/kontakt">Contact</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="/kontakt/cookies">Cookies</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="/kontakt/zasady">Rules</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="row">
+                    <p class="custom-center" style="color: white; margin-top: 10px">Copyright © 2018 CCPX.com AKKM Limited All rights reserved</p>
+                </div>
             </div>
+        </footer>
+    </div>
 
-            <div class="row">
-                <ul class="menu list-inline custom-center">
-                    <li class="list-inline-item">
-                        <a href="#">Home</a>
-                    </li>
-
-                    <li class="list-inline-item">
-                        <a href="/kontakt/kontakt">Contact</a>
-                    </li>
-
-                    <li class="list-inline-item">
-                        <a href="/kontakt/cookies">Cookies</a>
-                    </li>
-
-                    <li class="list-inline-item">
-                        <a href="/kontakt/zasady">Rules</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="row">
-                <p class="custom-center" style="color: white; margin-top: 10px">Copyright © 2018 CCPX.com AKKM Limited
-                    All
-                    rights reserved</p>
-            </div>
-        </div>
-    </footer>
-</div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>

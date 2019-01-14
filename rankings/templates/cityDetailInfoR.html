@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
     {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>CCPX</title>
 </head>
 <body>
-            <p class="text-center profileLabel"> Owner: <a href='../'>{{ city.city_owner }}</a></p>
-
-            <p class="text-center profileLabel"> Name: {{ city.city_name }}</p>
-
-            <p class="text-center profileLabel"> Points: {{ city.points }}</p>
-
-            <p class="text-center profileLabel"> PozX: {{ city.pos_x }}</p>
-
-            <p class="text-center profileLabel"> PozY: {{ city.pos_y }}</p>
+    <p class="text-center profileLabel"> Owner: <a href='../'>{{ city.city_owner }}</a></p>
+    <p class="text-center profileLabel"> Name: {{ city.city_name }}</p>
+    <p class="text-center profileLabel"> Points: {{ city.points }}</p>
+    <p class="text-center profileLabel"> PozX: {{ city.pos_x }}</p>
+    <p class="text-center profileLabel"> PozY: {{ city.pos_y }}</p>
 </body>
-</html> 
+</html>
