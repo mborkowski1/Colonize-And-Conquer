@@ -1,0 +1,77 @@
+body {
+    background: url('../cityMap/assets/yellowBackground2.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+nav {
+    background: url('../cityMap/assets/yellowBackground3.png');
+    background-size: 100%;
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+    font-family: 'Lobster';
+}
+
+.custom-center {
+    margin: auto;
+}
+
+nav li:hover {
+    background: #785800;
+    border-radius: 25%;
+}
+
+nav li {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+a, a:hover {
+    color: #9d6600;
+}
+
+.cityListPanel {
+    background-color: rgb(223, 206, 162);
+    border: 15px solid transparent;
+    border-image: url('../cityMap/assets/border8.png') 30 round;
+    margin-left: 2px;
+    margin-top: 20px;
+    padding: 10px 5px;
+
+}
+
+.cityListPanel h3 {
+    font-family: 'Lobster';
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+}
+
+th, td {
+    border-top: none;
+    font-weight: bold;
+}
+
+table {
+    font-family: arial, sans-serif;
+
+}
+button {
+    background-color: #8b0000;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Lobster';
+}
+
+button:hover {
+    background-color: #bc0101;
+}
+
+
+
+
