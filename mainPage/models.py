@@ -18,6 +18,8 @@ class SupportTicket(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     comments = models.ManyToManyField(Comment, blank=True)
     question_type = models.CharField(max_length=200, blank=True, null=True)
+    have_been_taken = models.BooleanField(default=False)
+    have_been_taken_by = models.ForeignKey(User, related_name='employee', on_delete=models.CASCADE, null=True, blank=True)
 
 
 class Post(models.Model):
