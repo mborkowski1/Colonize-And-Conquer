@@ -24,21 +24,20 @@ def payment_canceled(request, payment_id):
     return render(request, 'canceled.html')
 
 
-def payment_process(request, payment_id):
-    if request.method == 'POST':
-        user = request.user
-        profile = Profile.objects.get(user=request.user)
-        profile.is_premium = True
-        profile.until_premium = timezone.now()
-        #profile.until_premium = timezone.now() + timedelta(days = 30)
-        profile.save()
-        tranzakcja = Tranzakcja(buyer=user, type_of_premium=request.POST.get('typPremium', False))
-        tranzakcja.save()
-        request.session['tranzakcja_id'] = tranzakcja.id
-
+def payment_process(request, typPremium):
+    #if request.method == 'POST':
+    user = request.user
+    profile = Profile.objects.get(user=request.user)
+    profile.is_premium = True
+    profile.until_premium = timezone.now()
+    #profile.until_premium = timezone.now() + timedelta(days = 30)
+    profile.save()
+    tranzakcja = Tranzakcja(buyer=user, type_of_premium=typPremium)
+    tranzakcja.save()
+    
     host = request.get_host()
-    premium = Premium.objects.get(id=payment_id)
-    tranzakcja_id = request.session.get('tranzakcja_id')
+    premium = Premium.objects.get(id=1)
+    tranzakcja_id = tranzakcja.id
     tranzakcja = Tranzakcja.objects.get(id=tranzakcja_id)
     paypal_dict = {
         "business": settings.PAYPAL_RECEIVER_EMAIL,
