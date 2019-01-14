@@ -9,5 +9,7 @@ urlpatterns = [
     path('forum/', views.show_forum, name='show_forum'),
     path('faq/', views.show_faq, name='show_faq'),
     path('support/', views.show_support, name='show_support'),
+    path('support/supportEmployee/', views.show_support_employee, name='show_support_employee'),
+    path('support/supportEmployee/<int:id_of_ticket>/', views.show_employee_ticket_details, name='show_employee_ticket_details'),
     path('support/<int:id_of_ticket>/', views.show_ticket_details, name='show_ticket_details'),
 ]

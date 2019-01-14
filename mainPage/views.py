@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from .models import Post, SupportTicket
@@ -72,7 +73,7 @@ def main_page(request):
             form = ExtendedUserCreationForm(request.POST)
             if form.is_valid():
                 user = form.save()
-                login(request, user)
+                login(request, user, backend='django.contrib.auth.backends.ModelBackend')
                 return redirect('miasto/')
             login_form = AuthenticationForm()
             posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -84,7 +85,7 @@ def main_page(request):
             posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
             if login_form.is_valid():
                 user = login_form.get_user()
-                login(request, user)
+                login(request, user, backend='django.contrib.auth.backends.ModelBackend')
                 servers = Server.objects.all()
                 return render(request, 'index.html',
                               {'servers': servers, 'posts': posts, 'form': form, 'login_form': login_form})
@@ -134,40 +135,81 @@ def show_forum(request):
     return render(request, 'forum.html', {'posts': posts})
 
 
+@login_required(login_url=main_page)
+def show_support_employee(request):
+    if request.user.groups.filter(name='Support').exists():
+        tickets = SupportTicket.objects.filter(have_been_taken=False).order_by('created_date')
+        your_tickets = SupportTicket.objects.filter(have_been_taken_by=request.user).order_by('created_date')
+        return render(request, 'supportEmployee.html', {'tickets': tickets, 'your_tickets': your_tickets})
+    else:
+        return redirect(main_page)
+
+
+@login_required(login_url=main_page)
+def show_employee_ticket_details(request, id_of_ticket):
+    if request.user.groups.filter(name='Support').exists():
+        ticket = SupportTicket.objects.get(id=id_of_ticket)
+        if ticket.author == request.user:
+            form = CommentForm()
+            if request.method == 'POST':
+                form = CommentForm(request.POST)
+                if form.is_valid():
+                    form = form.save(commit=False)
+                    form.author = request.user
+                    form.save()
+                    ticket.comments.add(form)
+                    ticket.have_been_taken = True
+                    ticket.have_been_taken_by = request.user
+                    ticket.save()
+                    form = CommentForm()
+
+            return render(request, 'ticketDetailEmployee.html', {'ticket': ticket, 'form': form})
+        else:
+            return redirect(main_page)
+
+
 def show_support(request):
     form = SupportTicketForm()
     if request.user.is_authenticated:
-        tickets = SupportTicket.objects.filter(author=request.user).order_by('created_date')
+        if request.user.groups.filter(name='Support').exists():
+            return redirect("supportEmployee/")
+        else:
+            tickets = SupportTicket.objects.filter(author=request.user).order_by('created_date')
+            if request.method == 'POST':
+                form = SupportTicketForm(request.POST)
+                if form.is_valid():
+                    form_backup = form
+                    form = form.save(commit=False)
+                    form.author = request.user
+                    form.question_type = form_backup.cleaned_data['question_type']
+                    form.save()
+                    id_of_ticket = form.id
+                    return redirect(str(id_of_ticket) + "/")
+            return render(request, 'support.html', {'form': form, 'tickets': tickets})
+    else:
+        tickets = None
+        form = None
+        return render(request, 'support.html', {'form': form, 'tickets': tickets})
+
+
+@login_required(login_url=main_page)
+def show_ticket_details(request, id_of_ticket):
+    ticket = SupportTicket.objects.get(id=id_of_ticket)
+    if ticket.author == request.user:
+        form = CommentForm()
         if request.method == 'POST':
-            form = SupportTicketForm(request.POST)
+            form = CommentForm(request.POST)
             if form.is_valid():
                 form = form.save(commit=False)
                 form.author = request.user
-                form.question_type = form.cleaned_data['question_type']
                 form.save()
-                id_of_ticket = form.id
-                return redirect(str(id_of_ticket))
-        return render(request, 'support.html', {'form': form, 'tickets': tickets})
+                ticket.comments.add(form)
+                ticket.save()
+                form = CommentForm()
+
+        return render(request, 'ticketDetail.html', {'ticket': ticket, 'form': form})
     else:
-        tickets = None
-        return render(request, 'support.html', {'form': form, 'tickets': tickets})
-
-
-def show_ticket_details(request, id_of_ticket):
-    ticket = SupportTicket.objects.get(id=id_of_ticket)
-    form = CommentForm()
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            form = form.save(commit=False)
-            form.author = request.user
-            form.save()
-            ticket.comments.add(form)
-            ticket.save()
-            form = CommentForm()
-
-    return render(request, 'ticketDetail.html', {'ticket': ticket, 'form': form})
-
+        return redirect(main_page)
 
 def show_faq(request):
     return render(request, 'faq.html')
