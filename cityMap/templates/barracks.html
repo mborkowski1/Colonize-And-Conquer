@@ -94,9 +94,11 @@
                                   <td>[[ city.hinfantry ]]</td>
                                   <td>
                                       <div v-show="city.town_hall < townHall.lvlToUnlockHinfantry" class="font-weight-bold small text-danger text-center">
+                                          You cannot recruit this units!
+                                          <br/>
                                           Your town hall level is too small!
                                           <br/>
-                                          It requires [[ townHall.lvlToUnlockHinfantry ]] town hall level!
+                                          It requires [[ townHall.lvlToUnlockHinfantry ]] town hall level.
                                       </div>
                                       <form @submit.prevent="AddHeavyInfantry" class="input-group">
                                           <input type="number" :disabled="city.town_hall < townHall.lvlToUnlockHinfantry" class="form-control" v-model.number="hinfantryToAdd" placeholder="Add Heavy Infantry" min="0"/>
@@ -117,9 +119,11 @@
                                   <td>[[ city.planes ]]</td>
                                   <td>
                                       <div v-show="city.town_hall < townHall.lvlToUnlockPlanes" class="font-weight-bold small text-danger text-center">
+                                          You cannot recruit this units!
+                                          <br/>
                                           Your town hall level is too small!
                                           <br/>
-                                          It requires [[ townHall.lvlToUnlockPlanes ]] town hall level!
+                                          It requires [[ townHall.lvlToUnlockPlanes ]] town hall level.
                                       </div>
                                       <form @submit.prevent="AddPlanes" class="input-group">
                                           <input type="number" :disabled="city.town_hall < townHall.lvlToUnlockPlanes" class="form-control" v-model.number="planesToAdd" placeholder="Add Planes" min="0"/>
@@ -141,9 +145,11 @@
                                   <td>[[ city.ltanks ]]</td>
                                   <td>
                                       <div v-show="city.town_hall < townHall.lvlToUnlockLtanks" class="font-weight-bold small text-danger text-center">
+                                          You cannot recruit this units!
+                                          <br/>
                                           Your town hall level is too small!
                                           <br/>
-                                          It requires [[ townHall.lvlToUnlockLtanks ]] town hall level!
+                                          It requires [[ townHall.lvlToUnlockLtanks ]] town hall level.
                                       </div>
                                       <form @submit.prevent="AddLightTanks" class="input-group">
                                           <input type="number" :disabled="city.town_hall < townHall.lvlToUnlockLtanks" class="form-control" v-model.number="ltanksToAdd" placeholder="Add Light Tanks" min="0"/>
@@ -165,9 +171,11 @@
                                   <td>[[ city.htanks ]]</td>
                                   <td>
                                       <div v-show="city.town_hall < townHall.lvlToUnlockHtanks" class="font-weight-bold small text-danger text-center">
+                                          You cannot recruit this units!
+                                          <br/>
                                           Your town hall level is too small!
                                           <br/>
-                                          It requires [[ townHall.lvlToUnlockHtanks ]] town hall level!
+                                          It requires [[ townHall.lvlToUnlockHtanks ]] town hall level.
                                       </div>
                                       <form @submit.prevent="AddHeavyTanks" class="input-group">
                                           <input type="number" :disabled="city.town_hall < townHall.lvlToUnlockHtanks" class="form-control" v-model.number="htanksToAdd" placeholder="Add Heavy Tanks" min="0"/>
@@ -189,9 +197,11 @@
                                   <td>[[ city.motorized ]]</td>
                                   <td>
                                       <div v-show="city.town_hall < townHall.lvlToUnlockMotorized" class="font-weight-bold small text-danger text-center">
+                                          You cannot recruit this units!
+                                          <br/>
                                           Your town hall level is too small!
                                           <br/>
-                                          It requires [[ townHall.lvlToUnlockMotorized ]] town hall level!
+                                          It requires [[ townHall.lvlToUnlockMotorized ]] town hall level.
                                       </div>
                                       <form @submit.prevent="AddMotorized" class="input-group">
                                           <input type="number" :disabled="city.town_hall < townHall.lvlToUnlockMotorized" class="form-control" v-model.number="motorizedToAdd" placeholder="Add Motorized" min="0"/>

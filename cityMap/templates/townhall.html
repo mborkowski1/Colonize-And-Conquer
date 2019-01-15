@@ -72,11 +72,22 @@
                                 <td>Town Hall</td>
                                 <td>[[ city.town_hall ]]</td>
                                 <td>
+                                    <div v-show="city.research_th1 === 0 && city.town_hall === 10" class="font-weight-bold small text-danger text-center">
+                                        You cannot raise the level of mine!
+                                        <br/>
+                                        It requires to researched technology for this building.
+                                    </div>
+                                    <div v-show="city.research_th2 === 0 && city.town_hall === 20" class="font-weight-bold small text-danger text-center">
+                                        You cannot raise the level of mine!
+                                        <br/>
+                                        It requires to researched technology for this building.
+                                    </div>
                                     <form @submit.prevent="AddTownHallLevel" class="input-group">
-                                        <input type="number" class="form-control" v-model.number="townHallLevelToAdd" placeholder="Add Town Hall Level" min="0"/>
-                                        <button type="submit" class="btn "><i class="fas fa-plus-circle"></i></button>
+                                        <input type="number" :disabled="(city.research_th1 === 0 && city.town_hall === 10) || (city.research_th2 === 0 && city.town_hall === 20)" class="form-control" v-model.number="townHallLevelToAdd" placeholder="Add Town Hall Level" min="0"/>
+                                        <button type="submit" :disabled="(city.research_th1 === 0 && city.town_hall === 10) || (city.research_th2 === 0 && city.town_hall === 20)" class="btn"><i class="fas fa-plus-circle"></i></button>
                                     </form>
                                     <div v-show="inputMessageTownHall" id="townHallRequirementMessage" class="font-weight-bold small text-info"></div>
+                                    <div v-show="errorNotResearchedTownHallTechnology" class="font-weight-bold small text-danger">You cannot raise the level of housing until you researched technology for this building!</div>
                                     <div v-show="errorAddTownHallLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                 </td>
                                 <td>
@@ -92,11 +103,17 @@
                                 <td>Barracks</td>
                                 <td>[[ city.barracks ]]</td>
                                 <td>
+                                    <div v-show="city.research_b === 0 && city.barracks === 10" class="font-weight-bold small text-danger text-center">
+                                        You cannot raise the level of barracks!
+                                        <br/>
+                                        It requires to researched technology for this building.
+                                    </div>
                                     <form @submit.prevent="AddBarracksLevel" class="input-group">
-                                        <input type="number" class="form-control" v-model.number="barracksLevelToAdd" placeholder="Add Barracks Level" min="0"/>
-                                        <button type="submit" class="btn"><i class="fas fa-plus-circle"></i></button>
+                                        <input type="number" :disabled="city.research_b === 0 && city.barracks === 10" class="form-control" v-model.number="barracksLevelToAdd" placeholder="Add Barracks Level" min="0"/>
+                                        <button type="submit" :disabled="city.research_b === 0 && city.barracks === 10" class="btn"><i class="fas fa-plus-circle"></i></button>
                                     </form>
                                     <div v-show="inputMessageBarracks" id="barracksRequirementMessage" class="font-weight-bold small text-info"></div>
+                                    <div v-show="errorNotResearchedBarracksTechnology" class="font-weight-bold small text-danger">You cannot raise the level of housing until you researched technology for this building!</div>
                                     <div v-show="errorAddBarracksLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                 </td>
                                 <td>
@@ -112,11 +129,17 @@
                                 <td>Roads</td>
                                 <td>[[ city.roads ]]</td>
                                 <td>
+                                    <div v-show="city.research_r === 0 && city.roads === 10" class="font-weight-bold small text-danger text-center">
+                                        You cannot raise the level of roads!
+                                        <br/>
+                                        It requires to researched technology for this building.
+                                    </div>
                                     <form @submit.prevent="AddRoadsLevel" class="input-group">
-                                        <input type="number" class="form-control" v-model.number="roadsLevelToAdd" placeholder="Add Roads Level" min="0"/>
-                                        <button type="submit" class="btn"><i class="fas fa-plus-circle"></i></button>
+                                        <input type="number" :disabled="city.research_r === 0 && city.roads === 10" class="form-control" v-model.number="roadsLevelToAdd" placeholder="Add Roads Level" min="0"/>
+                                        <button type="submit" :disabled="city.research_r === 0 && city.roads === 10" class="btn"><i class="fas fa-plus-circle"></i></button>
                                     </form>
                                     <div v-show="inputMessageRoads" id="roadsRequirementMessage" class="font-weight-bold small text-info"></div>
+                                    <div v-show="errorNotResearchedRoadsTechnology" class="font-weight-bold small text-danger">You cannot raise the level of housing until you researched technology for this building!</div>
                                     <div v-show="errorAddRoadsLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                 </td>
                                 <td>
@@ -130,11 +153,17 @@
                                 <td>Mine</td>
                                 <td>[[ city.mines ]]</td>
                                 <td>
+                                    <div v-show="city.research_m === 0 && city.mines === 10" class="font-weight-bold small text-danger text-center">
+                                        You cannot raise the level of mine!
+                                        <br/>
+                                        It requires to researched technology for this building.
+                                    </div>
                                     <form @submit.prevent="AddMineLevel" class="input-group">
-                                        <input type="number" class="form-control" v-model.number="mineLevelToAdd" placeholder="Add Mine Level" min="0"/>
-                                        <button type="submit" class="btn "><i class="fas fa-plus-circle"></i></button>
+                                        <input type="number" :disabled="city.research_m === 0 && city.mines === 10" class="form-control" v-model.number="mineLevelToAdd" placeholder="Add Mine Level" min="0"/>
+                                        <button type="submit" :disabled="city.research_m === 0 && city.mines === 10" class="btn"><i class="fas fa-plus-circle"></i></button>
                                     </form>
                                     <div v-show="inputMessageMines" id="minesRequirementMessage" class="font-weight-bold small text-info"></div>
+                                    <div v-show="errorNotResearchedMinesTechnology" class="font-weight-bold small text-danger">You cannot raise the level of housing until you researched technology for this building!</div>
                                     <div v-show="errorAddMinesLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                 </td>
                                 <td>
@@ -150,11 +179,17 @@
                                 <td>Power Plant</td>
                                 <td>[[ city.power_plant ]]</td>
                                 <td>
+                                    <div v-show="city.research_pp === 0 && city.power_plant === 10" class="font-weight-bold small text-danger text-center">
+                                        You cannot raise the level of power plant!
+                                        <br/>
+                                        It requires to researched technology for this building.
+                                    </div>
                                     <form @submit.prevent="AddPowerPlantLevel" class="input-group">
-                                        <input type="number" class="form-control" v-model.number="powerPlantLevelToAdd" placeholder="Add Power Plant Level" min="0"/>
-                                        <button type="submit" class="btn "><i class="fas fa-plus-circle"></i></button>
+                                        <input type="number" :disabled="city.research_pp === 0 && city.power_plant === 10" class="form-control" v-model.number="powerPlantLevelToAdd" placeholder="Add Power Plant Level" min="0"/>
+                                        <button type="submit" :disabled="city.research_pp === 0 && city.power_plant === 10" class="btn"><i class="fas fa-plus-circle"></i></button>
                                     </form>
                                     <div v-show="inputMessagePowerPlant" id="powerPlantRequirementMessage" class="font-weight-bold small text-info"></div>
+                                    <div v-show="errorNotResearchedPowerPlantTechnology" class="font-weight-bold small text-danger">You cannot raise the level of housing until you researched technology for this building!</div>
                                     <div v-show="errorAddPowerPlantLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                 </td>
                                 <td>
@@ -170,11 +205,17 @@
                                 <td>Farms</td>
                                 <td>[[ city.farms ]]</td>
                                 <td>
+                                    <div v-show="city.research_f === 0 && city.farms === 10" class="font-weight-bold small text-danger text-center">
+                                        You cannot raise the level of farms!
+                                        <br/>
+                                        It requires to researched technology for this building.
+                                    </div>
                                     <form @submit.prevent="AddFarmsLevel" class="input-group">
-                                        <input type="number" class="form-control" v-model.number="farmsLevelToAdd" placeholder="Add Farms Level" min="0"/>
-                                        <button type="submit" class="btn "><i class="fas fa-plus-circle "></i></button>
+                                        <input type="number" :disabled="city.research_f === 0 && city.farms === 10" class="form-control" v-model.number="farmsLevelToAdd" placeholder="Add Farms Level" min="0"/>
+                                        <button type="submit" :disabled="city.research_f === 0 && city.farms === 10" class="btn"><i class="fas fa-plus-circle"></i></button>
                                     </form>
                                     <div v-show="inputMessageFarms" id="farmsRequirementMessage" class="font-weight-bold small text-info"></div>
+                                    <div v-show="errorNotResearchedFarmsTechnology" class="font-weight-bold small text-danger">You cannot raise the level of housing until you researched technology for this building!</div>
                                     <div v-show="errorAddFarmsLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                 </td>
                                 <td>
@@ -190,11 +231,17 @@
                                 <td>Housing</td>
                                 <td>[[ city.housing ]]</td>
                                 <td>
+                                    <div v-show="city.research_h === 0 && city.housing === 10" class="font-weight-bold small text-danger text-center">
+                                        You cannot raise the level of housing!
+                                        <br/>
+                                        It requires to researched technology for this building.
+                                    </div>
                                     <form @submit.prevent="AddHousingLevel" class="input-group">
-                                        <input type="number" class="form-control" v-model.number="housingLevelToAdd" placeholder="Add Housing Level" min="0"/>
-                                        <button type="submit" class="btn"><i class="fas fa-plus-circle"></i></button>
+                                        <input type="number" :disabled="city.research_h === 0 && city.housing === 10" class="form-control" v-model.number="housingLevelToAdd" placeholder="Add Housing Level" min="0"/>
+                                        <button type="submit" :disabled="city.research_h === 0 && city.housing === 10" class="btn"><i class="fas fa-plus-circle"></i></button>
                                     </form>
                                     <div v-show="inputMessageHousing" id="housingRequirementMessage" class="font-weight-bold small text-info"></div>
+                                    <div v-show="errorNotResearchedHousingTechnology" class="font-weight-bold small text-danger">You cannot raise the level of housing until you researched technology for this building!</div>
                                     <div v-show="errorAddHousingLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                 </td>
                                 <td>
@@ -266,6 +313,13 @@
                 errorAddPowerPlantLevel: false,
                 errorAddFarmsLevel: false,
                 errorAddHousingLevel: false,
+                errorNotResearchedTownHallTechnology: false,
+                errorNotResearchedBarracksTechnology: false,
+                errorNotResearchedPowerPlantTechnology: false,
+                errorNotResearchedMinesTechnology: false,
+                errorNotResearchedFarmsTechnology: false,
+                errorNotResearchedRoadsTechnology: false,
+                errorNotResearchedHousingTechnology: false,
                 inputMessageTownHall: false,
                 inputMessageBarracks: false,
                 inputMessageRoads: false,
@@ -282,11 +336,7 @@
                     this.$http.get('/api/city/' + cityId)
                         .then(response => {
                             this.city = response.data;
-                            console.log(response)
-                        })
-                        .catch(error => {
-                            console.error(error)
-                        })
+                        });
                 },
                 AddTownHallLevel() {
                     const requirementPopulation = this.townHallLevelToAdd * 15;
@@ -296,27 +346,31 @@
                     if (this.townHallLevelToAdd <= 0 || this.townHallLevelToAdd === null) {
                         this.townHallLevelToAdd = 0;
                         this.errorAddTownHallLevel = false;
+                        this.errorNotResearchedTownHallTechnology = false;
                     }
                     else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore || requirementElectricity > this.city.electricity) {
                         this.townHallLevelToAdd = 0;
                         this.errorAddTownHallLevel = true;
+                        this.errorNotResearchedTownHallTechnology = false;
                     }
                     else {
                         this.errorAddTownHallLevel = false;
                         this.city.town_hall += this.townHallLevelToAdd;
-                        this.city.population -= requirementPopulation;
-                        this.city.food -= requirementFood;
-                        this.city.ore -= requirementOre;
-                        this.city.electricity -= requirementElectricity;
-                        this.city.points += this.townHallLevelToAdd * 100;
-                        this.$http.put('/api/city/' + cityId + '/', this.city)
-                            .then(response => {
-                                console.log(response)
-                            })
-                            .catch(error => {
-                                console.error(error)
-                            })
-                            .finally(() => this.townHallLevelToAdd = 0);
+                        if ((this.city.town_hall > 10 && this.city.research_th1 === 0) || (this.city.town_hall > 20 && this.city.research_th2 === 0)) {
+                            this.city.town_hall -= this.townHallLevelToAdd;
+                            this.townHallLevelToAdd = 0;
+                            this.errorNotResearchedTownHallTechnology = true;
+                        }
+                        else {
+                            this.errorNotResearchedTownHallTechnology = false;
+                            this.city.population -= requirementPopulation;
+                            this.city.food -= requirementFood;
+                            this.city.ore -= requirementOre;
+                            this.city.electricity -= requirementElectricity;
+                            this.city.points += this.townHallLevelToAdd * 100;
+                            this.$http.put('/api/city/' + cityId + '/', this.city)
+                                .finally(() => this.townHallLevelToAdd = 0);
+                        }
                     }
                 },
                 AddBarracksLevel() {
@@ -327,27 +381,31 @@
                     if (this.barracksLevelToAdd <= 0 || this.barracksLevelToAdd === null) {
                         this.barracksLevelToAdd = 0;
                         this.errorAddBarracksLevel = false;
+                        this.errorNotResearchedBarracksTechnology = false;
                     }
                     else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore || requirementElectricity > this.city.electricity) {
                         this.barracksLevelToAdd = 0;
                         this.errorAddBarracksLevel = true;
+                        this.errorNotResearchedBarracksTechnology = false;
                     }
                     else {
                         this.errorAddBarracksLevel = false;
                         this.city.barracks += this.barracksLevelToAdd;
-                        this.city.population -= requirementPopulation;
-                        this.city.food -= requirementFood;
-                        this.city.ore -= requirementOre;
-                        this.city.electricity -= requirementElectricity;
-                        this.city.points += this.barracksLevelToAdd * 100;
-                        this.$http.put('/api/city/' + cityId + '/', this.city)
-                            .then(response => {
-                                console.log(response)
-                            })
-                            .catch(error => {
-                                console.error(error)
-                            })
-                            .finally(() => this.barracksLevelToAdd = 0);
+                        if (this.city.barracks > 10 && this.city.research_b === 0) {
+                            this.city.barracks -= this.barracksLevelToAdd;
+                            this.barracksLevelToAdd = 0;
+                            this.errorNotResearchedBarracksTechnology = true;
+                        }
+                        else {
+                            this.errorNotResearchedBarracksTechnology = false;
+                            this.city.population -= requirementPopulation;
+                            this.city.food -= requirementFood;
+                            this.city.ore -= requirementOre;
+                            this.city.electricity -= requirementElectricity;
+                            this.city.points += this.barracksLevelToAdd * 100;
+                            this.$http.put('/api/city/' + cityId + '/', this.city)
+                                .finally(() => this.barracksLevelToAdd = 0);
+                        }
                     }
                 },
                 AddRoadsLevel() {
@@ -356,25 +414,29 @@
                     if (this.roadsLevelToAdd <= 0 || this.roadsLevelToAdd === null) {
                         this.roadsLevelToAdd = 0;
                         this.errorAddRoadsLevel = false;
+                        this.errorNotResearchedRoadsTechnology = false;
                     }
                     else if (requirementPopulation > this.city.population || requirementFood > this.city.food) {
                         this.roadsLevelToAdd = 0;
                         this.errorAddRoadsLevel = true;
+                        this.errorNotResearchedRoadsTechnology = false;
                     }
                     else {
                         this.errorAddRoadsLevel = false;
                         this.city.roads += this.roadsLevelToAdd;
-                        this.city.population -= requirementPopulation;
-                        this.city.food -= requirementFood;
-                        this.city.points += this.roadsLevelToAdd * 100;
-                        this.$http.put('/api/city/' + cityId + '/', this.city)
-                            .then(response => {
-                                console.log(response)
-                            })
-                            .catch(error => {
-                                console.error(error)
-                            })
-                            .finally(() => this.roadsLevelToAdd = 0);
+                        if (this.city.roads > 10 && this.city.research_r === 0) {
+                            this.city.roads -= this.roadsLevelToAdd;
+                            this.roadsLevelToAdd = 0;
+                            this.errorNotResearchedRoadsTechnology = true;
+                        }
+                        else {
+                            this.errorNotResearchedRoadsTechnology = false;
+                            this.city.population -= requirementPopulation;
+                            this.city.food -= requirementFood;
+                            this.city.points += this.roadsLevelToAdd * 100;
+                            this.$http.put('/api/city/' + cityId + '/', this.city)
+                                .finally(() => this.roadsLevelToAdd = 0);
+                        }
                     }
                 },
                 AddMineLevel() {
@@ -385,27 +447,31 @@
                     if (this.mineLevelToAdd <= 0 || this.mineLevelToAdd === null) {
                         this.mineLevelToAdd = 0;
                         this.errorAddMinesLevel = false;
+                        this.errorNotResearchedMinesTechnology = false;
                     }
                     else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore || requirementElectricity > this.city.electricity) {
                         this.mineLevelToAdd = 0;
                         this.errorAddMinesLevel = true;
+                        this.errorNotResearchedMinesTechnology = false;
                     }
                     else {
                         this.errorAddMinesLevel = false;
                         this.city.mines += this.mineLevelToAdd;
-                        this.city.population -= requirementPopulation;
-                        this.city.food -= requirementFood;
-                        this.city.ore -= requirementOre;
-                        this.city.electricity -= requirementElectricity;
-                        this.city.points += this.mineLevelToAdd * 100;
-                        this.$http.put('/api/city/' + cityId + '/', this.city)
-                            .then(response => {
-                                console.log(response)
-                            })
-                            .catch(error => {
-                                console.error(error)
-                            })
-                            .finally(() => this.mineLevelToAdd = 0);
+                        if (this.city.mines > 10 && this.city.research_m === 0) {
+                            this.city.mines -= this.mineLevelToAdd;
+                            this.mineLevelToAdd = 0;
+                            this.errorNotResearchedMinesTechnology = true;
+                        }
+                        else {
+                            this.errorNotResearchedMinesTechnology = false;
+                            this.city.population -= requirementPopulation;
+                            this.city.food -= requirementFood;
+                            this.city.ore -= requirementOre;
+                            this.city.electricity -= requirementElectricity;
+                            this.city.points += this.mineLevelToAdd * 100;
+                            this.$http.put('/api/city/' + cityId + '/', this.city)
+                                .finally(() => this.mineLevelToAdd = 0);
+                        }
                     }
                 },
                 AddPowerPlantLevel() {
@@ -416,27 +482,31 @@
                     if (this.powerPlantLevelToAdd <= 0 || this.powerPlantLevelToAdd === null) {
                         this.powerPlantLevelToAdd = 0;
                         this.errorAddPowerPlantLevel = false;
+                        this.errorNotResearchedPowerPlantTechnology = false;
                     }
                     else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore || requirementElectricity > this.city.electricity) {
                         this.powerPlantLevelToAdd = 0;
                         this.errorAddPowerPlantLevel = true;
+                        this.errorNotResearchedPowerPlantTechnology = false;
                     }
                     else {
                         this.errorAddPowerPlantLevel = false;
                         this.city.power_plant += this.powerPlantLevelToAdd;
-                        this.city.population -= requirementPopulation;
-                        this.city.food -= requirementFood;
-                        this.city.ore -= requirementOre;
-                        this.city.electricity -= requirementElectricity;
-                        this.city.points += this.powerPlantLevelToAdd * 100;
-                        this.$http.put('/api/city/' + cityId + '/', this.city)
-                            .then(response => {
-                                console.log(response)
-                            })
-                            .catch(error => {
-                                console.error(error)
-                            })
-                            .finally(() => this.powerPlantLevelToAdd = 0);
+                        if (this.city.power_plant > 10 && this.city.research_pp === 0) {
+                            this.city.power_plant -= this.powerPlantLevelToAdd;
+                            this.powerPlantLevelToAdd = 0;
+                            this.errorNotResearchedPowerPlantTechnology = true;
+                        }
+                        else {
+                            this.errorNotResearchedPowerPlantTechnology = false;
+                            this.city.population -= requirementPopulation;
+                            this.city.food -= requirementFood;
+                            this.city.ore -= requirementOre;
+                            this.city.electricity -= requirementElectricity;
+                            this.city.points += this.powerPlantLevelToAdd * 100;
+                            this.$http.put('/api/city/' + cityId + '/', this.city)
+                                .finally(() => this.powerPlantLevelToAdd = 0);
+                        }
                     }
                 },
                 AddFarmsLevel() {
@@ -447,27 +517,31 @@
                     if (this.farmsLevelToAdd <= 0 || this.farmsLevelToAdd === null) {
                         this.farmsLevelToAdd = 0;
                         this.errorAddFarmsLevel = false;
+                        this.errorNotResearchedFarmsTechnology = false;
                     }
                     else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore || requirementElectricity > this.city.electricity) {
                         this.farmsLevelToAdd = 0;
                         this.errorAddFarmsLevel = true;
+                        this.errorNotResearchedFarmsTechnology = false;
                     }
                     else {
                         this.errorAddFarmsLevel = false;
                         this.city.farms += this.farmsLevelToAdd;
-                        this.city.population -= requirementPopulation;
-                        this.city.food -= requirementFood;
-                        this.city.ore -= requirementOre;
-                        this.city.electricity -= requirementElectricity;
-                        this.city.points += this.farmsLevelToAdd * 100;
-                        this.$http.put('/api/city/' + cityId +'/', this.city)
-                            .then(response => {
-                                console.log(response)
-                            })
-                            .catch(error => {
-                                console.error(error)
-                            })
-                            .finally(() => this.farmsLevelToAdd = 0);
+                        if (this.city.farms > 10 && this.city.research_f === 0) {
+                            this.city.farms -= this.farmsLevelToAdd;
+                            this.farmsLevelToAdd = 0;
+                            this.errorNotResearchedFarmsTechnology = true;
+                        }
+                        else {
+                            this.errorNotResearchedFarmsTechnology = false;
+                            this.city.population -= requirementPopulation;
+                            this.city.food -= requirementFood;
+                            this.city.ore -= requirementOre;
+                            this.city.electricity -= requirementElectricity;
+                            this.city.points += this.farmsLevelToAdd * 100;
+                            this.$http.put('/api/city/' + cityId +'/', this.city)
+                                .finally(() => this.farmsLevelToAdd = 0);
+                        }
                     }
                 },
                 AddHousingLevel() {
@@ -477,27 +551,31 @@
                     if (this.housingLevelToAdd <= 0 || this.housingLevelToAdd === null) {
                         this.housingLevelToAdd = 0;
                         this.errorAddHousingLevel = false;
+                        this.errorNotResearchedHousingTechnology = false;
                     }
                     else if (requirementFood > this.city.food || requirementOre > this.city.ore || requirementElectricity > this.city.electricity) {
                         this.housingLevelToAdd = 0;
                         this.errorAddHousingLevel = true;
+                        this.errorNotResearchedHousingTechnology = false;
                     }
                     else {
                         this.errorAddHousingLevel = false;
                         this.city.housing += this.housingLevelToAdd;
-                        this.city.population += this.housingLevelToAdd * 100;
-                        this.city.food -= requirementFood;
-                        this.city.ore -= requirementOre;
-                        this.city.electricity -= requirementElectricity;
-                        this.city.points += this.housingLevelToAdd * 100;
-                        this.$http.put('/api/city/' + cityId + '/', this.city)
-                            .then(response => {
-                                console.log(response)
-                            })
-                            .catch(error => {
-                                console.error(error)
-                            })
-                            .finally(() => this.housingLevelToAdd = 0);
+                        if (this.city.housing > 10 && this.city.research_h === 0) {
+                            this.city.housing -= this.housingLevelToAdd;
+                            this.housingLevelToAdd = 0;
+                            this.errorNotResearchedHousingTechnology = true;
+                        }
+                        else {
+                            this.errorNotResearchedHousingTechnology = false;
+                            this.city.population += this.housingLevelToAdd * 100;
+                            this.city.food -= requirementFood;
+                            this.city.ore -= requirementOre;
+                            this.city.electricity -= requirementElectricity;
+                            this.city.points += this.housingLevelToAdd * 100;
+                            this.$http.put('/api/city/' + cityId + '/', this.city)
+                                .finally(() => this.housingLevelToAdd = 0);
+                        }
                     }
                 },
             },
