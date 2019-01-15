@@ -80,8 +80,7 @@
                                       </form>
                                       <div v-show="inputMessageInfantry" id="infantryRequirementMessage"
                                            class="font-weight-bold small text-info"></div>
-                                      <div v-show="errorAddInfantry" class="font-weight-bold small text-danger">You don't have enough resources!
-                                      </div>
+                                      <div v-show="errorAddInfantry" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                   </td>
                                   <td>
                                       <ul>
@@ -94,14 +93,17 @@
                                   <td>Heavy Infantry</td>
                                   <td>[[ city.hinfantry ]]</td>
                                   <td>
-                                      <form @submit.prevent="AddHeavyInfantry" class="input-group">
-                                          <input type="number" class="form-control" v-model.number="hinfantryToAdd" placeholder="Add Heavy Infantry" min="0"/>
-                                          <button type="submit" class="btn"><i class="fas fa-plus-circle"></i></button>
-                                      </form>
-                                      <div v-show="inputMessageHInfantry" id="hinfantryRequirementMessage"
-                                           class="font-weight-bold small text-info"></div>
-                                      <div v-show="errorAddHInfantry" class="font-weight-bold small text-danger">You don't have enough resources!
+                                      <div v-show="city.town_hall < townHall.lvlToUnlockHinfantry" class="font-weight-bold small text-danger text-center">
+                                          Your town hall level is too small!
+                                          <br/>
+                                          It requires [[ townHall.lvlToUnlockHinfantry ]] town hall level!
                                       </div>
+                                      <form @submit.prevent="AddHeavyInfantry" class="input-group">
+                                          <input type="number" :disabled="city.town_hall < townHall.lvlToUnlockHinfantry" class="form-control" v-model.number="hinfantryToAdd" placeholder="Add Heavy Infantry" min="0"/>
+                                          <button type="submit" :disabled="city.town_hall < townHall.lvlToUnlockHinfantry" class="btn"><i class="fas fa-plus-circle"></i></button>
+                                      </form>
+                                      <div v-show="inputMessageHInfantry" id="hinfantryRequirementMessage" class="font-weight-bold small text-info"></div>
+                                      <div v-show="errorAddHInfantry" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                   </td>
                                   <td>
                                       <ul>
@@ -114,13 +116,17 @@
                                   <td>Planes</td>
                                   <td>[[ city.planes ]]</td>
                                   <td>
+                                      <div v-show="city.town_hall < townHall.lvlToUnlockPlanes" class="font-weight-bold small text-danger text-center">
+                                          Your town hall level is too small!
+                                          <br/>
+                                          It requires [[ townHall.lvlToUnlockPlanes ]] town hall level!
+                                      </div>
                                       <form @submit.prevent="AddPlanes" class="input-group">
-                                          <input type="number" class="form-control" v-model.number="planesToAdd" placeholder="Add Planes" min="0"/>
-                                          <button type="submit" class="btn "><i class="fas fa-plus-circle"></i></button>
+                                          <input type="number" :disabled="city.town_hall < townHall.lvlToUnlockPlanes" class="form-control" v-model.number="planesToAdd" placeholder="Add Planes" min="0"/>
+                                          <button type="submit" :disabled="city.town_hall < townHall.lvlToUnlockPlanes" class="btn"><i class="fas fa-plus-circle"></i></button>
                                       </form>
                                       <div v-show="inputMessagePlanes" id="planesRequirementMessage" class="font-weight-bold small text-info"></div>
-                                      <div v-show="errorAddPlanes" class="font-weight-bold small text-danger">You don't have enough resources!
-                                      </div>
+                                      <div v-show="errorAddPlanes" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                   </td>
                                   <td>
                                       <ul>
@@ -134,13 +140,17 @@
                                   <td>Light Tanks</td>
                                   <td>[[ city.ltanks ]]</td>
                                   <td>
+                                      <div v-show="city.town_hall < townHall.lvlToUnlockLtanks" class="font-weight-bold small text-danger text-center">
+                                          Your town hall level is too small!
+                                          <br/>
+                                          It requires [[ townHall.lvlToUnlockLtanks ]] town hall level!
+                                      </div>
                                       <form @submit.prevent="AddLightTanks" class="input-group">
-                                          <input type="number" class="form-control" v-model.number="ltanksToAdd" placeholder="Add Light Tanks" min="0"/>
-                                          <button type="submit" class="btn "><i class="fas fa-plus-circle"></i></button>
+                                          <input type="number" :disabled="city.town_hall < townHall.lvlToUnlockLtanks" class="form-control" v-model.number="ltanksToAdd" placeholder="Add Light Tanks" min="0"/>
+                                          <button type="submit" :disabled="city.town_hall < townHall.lvlToUnlockLtanks" class="btn"><i class="fas fa-plus-circle"></i></button>
                                       </form>
                                       <div v-show="inputMessageLTanks" id="ltanksRequirementMessage" class="font-weight-bold small text-info"></div>
-                                      <div v-show="errorAddLTanks" class="font-weight-bold small text-danger">You don't have enough resources!
-                                      </div>
+                                      <div v-show="errorAddLTanks" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                   </td>
                                   <td>
                                       <ul>
@@ -154,13 +164,17 @@
                                   <td>Heavy Tanks</td>
                                   <td>[[ city.htanks ]]</td>
                                   <td>
+                                      <div v-show="city.town_hall < townHall.lvlToUnlockHtanks" class="font-weight-bold small text-danger text-center">
+                                          Your town hall level is too small!
+                                          <br/>
+                                          It requires [[ townHall.lvlToUnlockHtanks ]] town hall level!
+                                      </div>
                                       <form @submit.prevent="AddHeavyTanks" class="input-group">
-                                          <input type="number" class="form-control" v-model.number="htanksToAdd" placeholder="Add Heavy Tanks" min="0"/>
-                                          <button type="submit" class="btn "><i class="fas fa-plus-circle"></i></button>
+                                          <input type="number" :disabled="city.town_hall < townHall.lvlToUnlockHtanks" class="form-control" v-model.number="htanksToAdd" placeholder="Add Heavy Tanks" min="0"/>
+                                          <button type="submit" :disabled="city.town_hall < townHall.lvlToUnlockHtanks" class="btn"><i class="fas fa-plus-circle"></i></button>
                                       </form>
                                       <div v-show="inputMessageHTanks" id="htanksRequirementMessage" class="font-weight-bold small text-info"></div>
-                                      <div v-show="errorAddHTanks" class="font-weight-bold small text-danger">You don't have enough resources!
-                                      </div>
+                                      <div v-show="errorAddHTanks" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                   </td>
                                   <td>
                                       <ul>
@@ -174,13 +188,17 @@
                                   <td>Motorized</td>
                                   <td>[[ city.motorized ]]</td>
                                   <td>
+                                      <div v-show="city.town_hall < townHall.lvlToUnlockMotorized" class="font-weight-bold small text-danger text-center">
+                                          Your town hall level is too small!
+                                          <br/>
+                                          It requires [[ townHall.lvlToUnlockMotorized ]] town hall level!
+                                      </div>
                                       <form @submit.prevent="AddMotorized" class="input-group">
-                                          <input type="number" class="form-control" v-model.number="motorizedToAdd" placeholder="Add Motorized" min="0"/>
-                                          <button type="submit" class="btn "><i class="fas fa-plus-circle"></i></button>
+                                          <input type="number" :disabled="city.town_hall < townHall.lvlToUnlockMotorized" class="form-control" v-model.number="motorizedToAdd" placeholder="Add Motorized" min="0"/>
+                                          <button type="submit" :disabled="city.town_hall < townHall.lvlToUnlockMotorized" class="btn"><i class="fas fa-plus-circle"></i></button>
                                       </form>
                                       <div v-show="inputMessageMotorized" id="motorizedRequirementMessage" class="font-weight-bold small text-info"></div>
-                                      <div v-show="errorAddMotorized" class="font-weight-bold small text-danger">You don't have enough resources!
-                                      </div>
+                                      <div v-show="errorAddMotorized" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                   </td>
                                   <td>
                                       <ul>
@@ -243,6 +261,7 @@
                   htanksToAdd: null,
                   motorizedToAdd: null,
                   city: {},
+                  townHall: {},
                   errorAddInfantry: false,
                   errorAddHInfantry: false,
                   errorAddPlanes: false,
@@ -264,11 +283,11 @@
                       this.$http.get('/api/city/' + cityId)
                           .then(response => {
                               this.city = response.data;
-                              console.log(response)
-                          })
-                          .catch(error => {
-                              console.error(error)
-                          })
+                          });
+                      this.$http.get('/api/townHall/' + 1)
+                          .then(response => {
+                              this.townHall = response.data;
+                          });
                   },
                   AddInfantry() {
                       const requirementPopulation = this.infantryToAdd;
@@ -287,12 +306,6 @@
                           this.city.population -= requirementPopulation;
                           this.city.food -= requirementFood;
                           this.$http.put('/api/city/' + cityId + '/', this.city)
-                              .then(response => {
-                                  console.log(response)
-                              })
-                              .catch(error => {
-                                  console.error(error)
-                              })
                               .finally(() => this.infantryToAdd = 0)
                       }
                   },
@@ -313,12 +326,6 @@
                           this.city.population -= requirementPopulation;
                           this.city.food -= requirementFood;
                           this.$http.put('/api/city/' + cityId + '/', this.city)
-                              .then(response => {
-                                  console.log(response)
-                              })
-                              .catch(error => {
-                                  console.error(error)
-                              })
                               .finally(() => this.hinfantryToAdd = 0)
                       }
                   },
@@ -341,12 +348,6 @@
                           this.city.food -= requirementFood;
                           this.city.electrity -= requirementElectricity;
                           this.$http.put('/api/city/' + cityId + '/', this.city)
-                              .then(response => {
-                                  console.log(response)
-                              })
-                              .catch(error => {
-                                  console.error(error)
-                              })
                               .finally(() => this.planesToAdd = 0)
                       }
                   },
@@ -369,12 +370,6 @@
                           this.city.food -= requirementFood;
                           this.city.ore -= requirementOre;
                           this.$http.put('/api/city/' + cityId + '/', this.city)
-                              .then(response => {
-                                  console.log(response)
-                              })
-                              .catch(error => {
-                                  console.error(error)
-                              })
                               .finally(() => this.ltanksToAdd = 0)
                       }
                   },
@@ -397,12 +392,6 @@
                           this.city.food -= requirementFood;
                           this.city.ore -= requirementOre;
                           this.$http.put('/api/city/' + cityId + '/', this.city)
-                              .then(response => {
-                                  console.log(response)
-                              })
-                              .catch(error => {
-                                  console.error(error)
-                              })
                               .finally(() => this.htanksToAdd = 0)
                       }
                   },
@@ -425,12 +414,6 @@
                           this.city.food -= requirementFood;
                           this.city.electrity -= requirementElectricity;
                           this.$http.put('/api/city/' + cityId + '/', this.city)
-                              .then(response => {
-                                  console.log(response)
-                              })
-                              .catch(error => {
-                                  console.error(error)
-                              })
                               .finally(() => this.motorizedToAdd = 0)
                       }
                   }
