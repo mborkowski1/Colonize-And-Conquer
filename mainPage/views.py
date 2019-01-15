@@ -10,8 +10,12 @@ from .forms import ExtendedUserCreationForm, CommentForm, SupportTicketForm
 from django.http import HttpResponse
 from cityMap.models import CityOwned, Housing, Farms, PowerPlant, Mines, Roads, TownHall, Barracks
 from cityMap.models import Infantry, HInfantry, LTanks, HTanks, Motorized, Planes
+from django.contrib.admin.views.decorators import staff_member_required
 
+def page_not_found_view(request):
+    return render(request, '404.html')
 
+@staff_member_required
 def generate_basic_tables(request):
     building = Barracks()
     building.save()
@@ -42,6 +46,7 @@ def generate_basic_tables(request):
     return HttpResponse('Generated tables without problems.')
 
 
+@staff_member_required
 def fill_village_pos_table(request):
     posx = 1
     posy = 1
