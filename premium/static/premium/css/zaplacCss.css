@@ -26,7 +26,7 @@ header{
 
 header .limiter{
     max-width: 1000px;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 
 header h3{

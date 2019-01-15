@@ -37,7 +37,7 @@ nav li {
     height: 50px;
     float: left;
     margin: 5px;
-    background-color: rgb(144, 129, 105, 0.7);
+    background-color: rgba(144, 129, 105, 0.7);
     border: 10px solid transparent;
     border-image: url('../cityMap/assets/border3.png') 30 round;
 }
@@ -48,7 +48,7 @@ nav li {
     float: left;
     margin: 5px;
     padding: 5px;
-    background-color: rgb(144, 129, 105, 0.7);
+    background-color: rgba(144, 129, 105, 0.7);
     border: 10px solid transparent;
     border-image: url('../cityMap/assets/border3.png') 30 round;
 }

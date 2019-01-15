@@ -1,10 +1,10 @@
 body {
-    background: url('/cityMap/static/cityMap/assets/yellowBackground2.png') no-repeat center center fixed;
+    background: url('../cityMap/assets/yellowBackground2.png') no-repeat center center fixed;
     background-size: cover;
 }
 
 nav {
-    background: url('/cityMap/static/cityMap/assets/yellowBackground3.png');
+    background: url('../cityMap/assets/yellowBackground3.png');
     background-size: 100%;
     border-bottom-left-radius: 20%;
     border-bottom-right-radius: 20%;
@@ -45,7 +45,7 @@ h3 {
 .attackPanel {
     background-color: rgb(223, 206, 162);
     border: 15px solid transparent;
-    border-image: url('/cityMap/static/cityMap/assets/border8.png') 30 round;
+    border-image: url('../cityMap/assets/border8.png') 30 round;
     margin-left: 2px;
     margin-top: 20px;
     padding: 10px 5px;
