@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = '%hvda=l7_z0&lw%gljyv6_5m59p7y3#bqb!jz=@k%df_704w8_'
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['solwit-pjatk-arc-2018-gr1.appspot.com', '127.0.0.1', '404', '500']
 handler500 = 'mainPage.views.page_not_found_view'
@@ -99,12 +99,8 @@ if os.getenv('GAE_APPLICATION', None):
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'HOST': '127.0.0.1',
-            'PORT': '3306',
-            'USER': 'root',
-            'PASSWORD': 'root',
-            'NAME': 'ccpx1',
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
 

@@ -64,46 +64,4 @@
         {% endfor %}
     </table>
 </div>
-<div class="row col-lg-12 raportPanel">
-    <h3 class="h3 custom-center font-weight-bold"><u>Special Reports</u></h3>
-    <table class="table table-hover table-borderless">
-        <thead class="thead-dark">
-            <tr>
-                <th>Sender</th>
-                <th>Title</th>
-                <th>Date</th>
-                <th>Have seen ?</th>
-            </tr>
-        </thead>
-        {% for specialresourceraport in specialresourceraports %}
-        <tr>
-            <td>{{ specialresourceraport.sender }}</td>
-            <td><a href='{{ specialresourceraport.id }}/3'>{{ specialresourceraport.name }}</a></td>
-            <td>{{ specialresourceraport.created_date }}</td>
-            <td>{{ specialresourceraport.have_seen }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-</div>
-<div class="row col-lg-12 raportPanel">
-    <h3 class="h3 custom-center font-weight-bold"><u>Trade Reports</u></h3>
-    <table class="table table-hover table-borderless">
-        <thead class="thead-dark">
-            <tr>
-                <th>Sender</th>
-                <th>Title</th>
-                <th>Date</th>
-                <th>Have seen ?</th>
-            </tr>
-        </thead>
-        {% for tradeeraport in tradeeraports %}
-        <tr>
-            <td>{{ tradeeraport.sender }}</td>
-            <td><a href='{{ tradeeraport.id }}/4'>{{ tradeeraport.name }}</a></td>
-            <td>{{ tradeeraport.created_date }}</td>
-            <td>{{ tradeeraport.have_seen }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-</div>
 {% endblock %}
