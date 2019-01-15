@@ -134,7 +134,6 @@
 
         <script>
             Vue.http.headers.common['X-CSRFToken'] = "{{ csrf_token }}";
-            const cityId = parseInt({{id_of_city}});
 
             new Vue({
                 delimiters: ['[[', ']]'],
@@ -160,26 +159,14 @@
                         this.$http.get('/api/user/')
                             .then(response => {
                                 this.users = response.data;
-                                console.log(response)
-                            })
-                            .catch(error => {
-                                console.error(error)
                             });
                         this.$http.get('/api/city')
                             .then(response => {
                                 this.cities = response.data;
-                                console.log(response)
-                            })
-                            .catch(error => {
-                                console.error(error)
                             });
                         this.$http.get('/api/profile')
                             .then(response => {
                                 this.profiles = response.data;
-                                console.log(response)
-                            })
-                            .catch(error => {
-                                console.error(error)
                             });
                     },
                     countQuantityOfCities(user) {
