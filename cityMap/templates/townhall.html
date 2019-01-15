@@ -74,11 +74,10 @@
                                 <td>
                                     <form @submit.prevent="AddTownHallLevel" class="input-group">
                                         <input type="number" class="form-control" v-model.number="townHallLevelToAdd" placeholder="Add Town Hall Level" min="0"/>
-                                        <div v-show="inputMessageTownHall" id="townHallRequirementMessage" class="font-weight-bold small text-info"></div>
-                                        <div v-show="errorAddTownHallLevel" class="font-weight-bold small text-danger">You don't have enough resources!
-                                        </div>
                                         <button type="submit" class="btn "><i class="fas fa-plus-circle"></i></button>
                                     </form>
+                                    <div v-show="inputMessageTownHall" id="townHallRequirementMessage" class="font-weight-bold small text-info"></div>
+                                    <div v-show="errorAddTownHallLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                 </td>
                                 <td>
                                     <ul>
@@ -95,11 +94,10 @@
                                 <td>
                                     <form @submit.prevent="AddBarracksLevel" class="input-group">
                                         <input type="number" class="form-control" v-model.number="barracksLevelToAdd" placeholder="Add Barracks Level" min="0"/>
-                                        <div v-show="inputMessageBarracks" id="barracksRequirementMessage" class="font-weight-bold small text-info"></div>
-                                        <div v-show="errorAddBarracksLevel" class="font-weight-bold small text-danger">You don't have enough resources!
-                                        </div>
                                         <button type="submit" class="btn"><i class="fas fa-plus-circle"></i></button>
                                     </form>
+                                    <div v-show="inputMessageBarracks" id="barracksRequirementMessage" class="font-weight-bold small text-info"></div>
+                                    <div v-show="errorAddBarracksLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                 </td>
                                 <td>
                                     <ul>
@@ -116,11 +114,10 @@
                                 <td>
                                     <form @submit.prevent="AddRoadsLevel" class="input-group">
                                         <input type="number" class="form-control" v-model.number="roadsLevelToAdd" placeholder="Add Roads Level" min="0"/>
-                                        <div v-show="inputMessageRoads" id="roadsRequirementMessage" class="font-weight-bold small text-info"></div>
-                                        <div v-show="errorAddRoadsLevel" class="font-weight-bold small text-danger">You don't have enough resources!
-                                        </div>
                                         <button type="submit" class="btn"><i class="fas fa-plus-circle"></i></button>
                                     </form>
+                                    <div v-show="inputMessageRoads" id="roadsRequirementMessage" class="font-weight-bold small text-info"></div>
+                                    <div v-show="errorAddRoadsLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                 </td>
                                 <td>
                                     <ul>
@@ -135,11 +132,10 @@
                                 <td>
                                     <form @submit.prevent="AddMineLevel" class="input-group">
                                         <input type="number" class="form-control" v-model.number="mineLevelToAdd" placeholder="Add Mine Level" min="0"/>
-                                        <div v-show="inputMessageMines" id="minesRequirementMessage" class="font-weight-bold small text-info"></div>
-                                        <div v-show="errorAddMinesLevel" class="font-weight-bold small text-danger">You don't have enough resources!
-                                        </div>
                                         <button type="submit" class="btn "><i class="fas fa-plus-circle"></i></button>
                                     </form>
+                                    <div v-show="inputMessageMines" id="minesRequirementMessage" class="font-weight-bold small text-info"></div>
+                                    <div v-show="errorAddMinesLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                 </td>
                                 <td>
                                     <ul>
@@ -156,11 +152,10 @@
                                 <td>
                                     <form @submit.prevent="AddPowerPlantLevel" class="input-group">
                                         <input type="number" class="form-control" v-model.number="powerPlantLevelToAdd" placeholder="Add Power Plant Level" min="0"/>
-                                        <div v-show="inputMessagePowerPlant" id="powerPlantRequirementMessage" class="font-weight-bold small text-info"></div>
-                                        <div v-show="errorAddPowerPlantLevel" class="font-weight-bold small text-danger">You don't have enough resources!
-                                        </div>
                                         <button type="submit" class="btn "><i class="fas fa-plus-circle"></i></button>
                                     </form>
+                                    <div v-show="inputMessagePowerPlant" id="powerPlantRequirementMessage" class="font-weight-bold small text-info"></div>
+                                    <div v-show="errorAddPowerPlantLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                 </td>
                                 <td>
                                     <ul>
@@ -177,11 +172,10 @@
                                 <td>
                                     <form @submit.prevent="AddFarmsLevel" class="input-group">
                                         <input type="number" class="form-control" v-model.number="farmsLevelToAdd" placeholder="Add Farms Level" min="0"/>
-                                        <div v-show="inputMessageFarms" id="farmsRequirementMessage" class="font-weight-bold small text-info"></div>
-                                        <div v-show="errorAddFarmsLevel" class="font-weight-bold small text-danger">You don't have enough resources!
-                                        </div>
                                         <button type="submit" class="btn "><i class="fas fa-plus-circle "></i></button>
                                     </form>
+                                    <div v-show="inputMessageFarms" id="farmsRequirementMessage" class="font-weight-bold small text-info"></div>
+                                    <div v-show="errorAddFarmsLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                 </td>
                                 <td>
                                     <ul>
@@ -198,12 +192,10 @@
                                 <td>
                                     <form @submit.prevent="AddHousingLevel" class="input-group">
                                         <input type="number" class="form-control" v-model.number="housingLevelToAdd" placeholder="Add Housing Level" min="0"/>
-                                        <div v-show="inputMessageHousing" id="housingRequirementMessage" class="font-weight-bold small text-info"></div>
-                                        <div v-show="errorAddHousingLevel" class="font-weight-bold small text-danger">You
-                                            don't have enough resources!
-                                        </div>
                                         <button type="submit" class="btn"><i class="fas fa-plus-circle"></i></button>
                                     </form>
+                                    <div v-show="inputMessageHousing" id="housingRequirementMessage" class="font-weight-bold small text-info"></div>
+                                    <div v-show="errorAddHousingLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                 </td>
                                 <td>
                                     <ul>
