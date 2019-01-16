@@ -74,7 +74,7 @@
                         </div>
                         <form class="my-3" @submit.prevent="addNewForum" v-show="userIsForumCreatorOrViceCreator">
                             <div class="form-group">
-                                <input type="text" v-model="newForumName" class="form-control" placeholder="New Forum Name" required>
+                                <input type="text" v-model="newForumName" class="form-control" placeholder="New Forum Name">
                             </div>
                             <button type="submit" class="btn btn-primary">Add New Forum</button>
                         </form>
@@ -89,7 +89,7 @@
                         <div v-show="!topicHasBeenChoosen">
                             <form class="my-3" @submit.prevent="addNewTopic">
                                 <div class="form-group">
-                                    <input type="text" v-model="newTopicName" class="form-control" placeholder="New Topic Name" required>
+                                    <input type="text" v-model="newTopicName" class="form-control" placeholder="New Topic Name">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Add New Topic</button>
                             </form>
@@ -104,7 +104,7 @@
                             </div>
                             <form class="mt-3" @submit.prevent="addNewPost">
                                 <div class="form-group">
-                                    <textarea v-model="newPostMessage" class="form-control" placeholder="New Post Message" rows="5" required></textarea>
+                                    <textarea v-model="newPostMessage" class="form-control" placeholder="New Post Message" rows="5"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Add New Post</button>
                             </form>
@@ -176,30 +176,34 @@
                 addNewPost() {
                     if (this.newPostMessage !== null && this.newPostMessage !== '') {
                         this.$http.post(allianceId + '/postForum', {id_of_topic: this.currentTopic.id, text: this.newPostMessage})
+                            .then(() => {
+                                this.$http.get('/api/subForum/' + this.currentSubforum.id + '/')
+                                    .then(response => {
+                                        this.currentSubforum = response.data;
+                                        this.topics = this.currentSubforum.topics;
+                                        this.currentTopic = this.topics.find(value => value.id === this.currentTopic.id);
+                                        this.posts = this.currentTopic.posts;
+                                    });
+                            })
                             .finally(() => {
                                 this.newPostMessage = '';
-                            });
-                        this.$http.get('/api/subForum/' + this.currentSubforum.id + '/')
-                            .then(response => {
                                 this.getData();
-                                this.currentSubforum = response.data;
-                                this.topics = this.currentSubforum.topics;
-                                this.currentTopic = this.topics.find(value => value.id === this.currentTopic.id);
-                                this.posts = this.currentTopic.posts;
                             });
                     }
                 },
                 addNewTopic() {
                     if (this.newTopicName !== null && this.newTopicName !== '') {
                         this.$http.post(allianceId + '/topic', {title: this.newTopicName, id_of_sub_forum: this.currentSubforum.id})
+                            .then(() => {
+                                this.$http.get('/api/subForum/' + this.currentSubforum.id + '/')
+                                    .then(response => {
+                                        this.currentSubforum = response.data;
+                                        this.topics = this.currentSubforum.topics;
+                                    });
+                            })
                             .finally(() => {
                                 this.newTopicName = '';
-                            });
-                        this.$http.get('/api/subForum/' + this.currentSubforum.id + '/')
-                            .then(response => {
                                 this.getData();
-                                this.currentSubforum = response.data;
-                                this.topics = this.currentSubforum.topics;
                             });
                     }
                 },
