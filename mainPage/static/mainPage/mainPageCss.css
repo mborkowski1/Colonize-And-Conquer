@@ -2,6 +2,7 @@ body {
     background: url('sci_fi_space_station_wallpaper.jpg') no-repeat;
     background-size: cover;
     height: 100%;
+    padding-bottom: 160px;
 }
 
 nav {
