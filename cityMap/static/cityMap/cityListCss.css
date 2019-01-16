@@ -89,7 +89,7 @@ input[type=button]:hover {
     background-color: #bc0101;
 }
 
-#mainPageLink {
+.mainPageLink {
     background-color: darkred;
     border: none;
     color: white;
@@ -102,6 +102,6 @@ input[type=button]:hover {
     font-family: 'Lobster', sans-serif;
 }
 
-#mainPageLink:hover {
+.mainPageLink:hover {
     background-color: #bc0101;
 }

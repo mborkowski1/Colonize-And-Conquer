@@ -42,7 +42,7 @@ function listenerClickTH1() {
 	        tech: "th1"
 	    }
 	});
-    window.location.href = "laboratorium";
+    window.location.href = "";
 }
 
 function listenerClickTH2() {
@@ -66,7 +66,7 @@ function listenerClickTH2() {
 	        tech: "th2"
 	    }
 	});
-    window.location.href = "laboratorium";
+    window.location.href = "";
 }
 
 function listenerClickM() {
@@ -90,7 +90,7 @@ function listenerClickM() {
 	        tech: "m"
 	    }
 	});
-    window.location.href = "laboratorium";
+    window.location.href = "";
 }
 
 function listenerClickF() {
@@ -114,7 +114,7 @@ function listenerClickF() {
 	        tech: "f"
 	    }
 	});
-    window.location.href = "laboratorium";
+    window.location.href = "";
 }
 
 function listenerClickPP() {
@@ -138,7 +138,7 @@ function listenerClickPP() {
 	        tech: "pp"
 	    }
 	});
-    window.location.href = "laboratorium";
+    window.location.href = "";
 }
 
 function listenerClickR() {
@@ -162,7 +162,7 @@ function listenerClickR() {
 	        tech: "r"
 	    }
 	});
-    window.location.href = "laboratorium";
+    window.location.href = "";
 }
 
 function listenerClickH() {
@@ -186,7 +186,7 @@ function listenerClickH() {
 	        tech: "h"
 	    }
 	});
-    window.location.href = "laboratorium";
+    window.location.href = "";
 }
 
 function listenerClickB() {
@@ -210,7 +210,7 @@ function listenerClickB() {
 	        tech: "b"
 	    }
 	});
-    window.location.href = "laboratorium";
+    window.location.href = "";
 }
 
 function listenerTH1(one, two, xx, yy) {

@@ -164,7 +164,7 @@ input[type=submit]:hover {
     cursor: pointer;
 }
 
-#mainPageLink {
+.mainPageLink {
     background-color: darkred;
     border: none;
     color: white;
@@ -177,6 +177,6 @@ input[type=submit]:hover {
     font-family: 'Lobster', sans-serif;
 }
 
-#mainPageLink:hover {
+.mainPageLink:hover {
     background-color: #bc0101;
 }

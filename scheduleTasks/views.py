@@ -24,28 +24,29 @@ def zaktualizuj_ataki(request):
     supports = Support.objects.all()
     if supports:
         for support in supports:
-            defender_city = CityOwned.objects.get(id=support.defender.id)
-            defender_city.infantry += support.infantry
-            defender_city.hinfantry += support.hinfantry
-            defender_city.planes += support.planes
-            defender_city.ltanks += support.ltanks
-            defender_city.htanks += support.htanks
-            defender_city.motorized += support.motorized
-            defender_city.save()
+            if support.arrive.timestamp() < int(time.time()):
+                defender_city = CityOwned.objects.get(id=support.defender.id)
+                defender_city.infantry += support.infantry
+                defender_city.hinfantry += support.hinfantry
+                defender_city.planes += support.planes
+                defender_city.ltanks += support.ltanks
+                defender_city.htanks += support.htanks
+                defender_city.motorized += support.motorized
+                defender_city.save()
 
-            raport = HelpRaport(sender=support.support.city_owner, receiver=support.defender.city_owner,
-                                city=support.defender)
-            raport.generateName()
+                raport = HelpRaport(sender=support.support.city_owner, receiver=support.defender.city_owner,
+                                    city=support.defender)
+                raport.generateName()
 
-            raport.infantry = support.infantry
-            raport.hinfantry = support.hinfantry
-            raport.planes = support.planes
-            raport.ltanks = support.ltanks
-            raport.htanks = support.htanks
-            raport.motorized = support.motorized
+                raport.infantry = support.infantry
+                raport.hinfantry = support.hinfantry
+                raport.planes = support.planes
+                raport.ltanks = support.ltanks
+                raport.htanks = support.htanks
+                raport.motorized = support.motorized
 
-            raport.save()
-            support.delete()
+                raport.save()
+                support.delete()
         
     attacks = Attack.objects.all()
     if attacks:
