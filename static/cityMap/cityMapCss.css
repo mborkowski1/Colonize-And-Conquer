@@ -8,7 +8,7 @@ nav {
     background-size: 100%;
     border-bottom-left-radius: 20%;
     border-bottom-right-radius: 20%;
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
 }
 
 .custom-center {
@@ -37,7 +37,7 @@ nav li {
     height: 50px;
     float: left;
     margin: 5px;
-    background-color: rgb(144, 129, 105, 0.7);
+    background-color: rgba(144, 129, 105, 0.7);
     border: 10px solid transparent;
     border-image: url('../cityMap/assets/border3.png') 30 round;
 }
@@ -48,7 +48,7 @@ nav li {
     float: left;
     margin: 5px;
     padding: 5px;
-    background-color: rgb(144, 129, 105, 0.7);
+    background-color: rgba(144, 129, 105, 0.7);
     border: 10px solid transparent;
     border-image: url('../cityMap/assets/border3.png') 30 round;
 }
@@ -127,7 +127,7 @@ input[type=button] {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
 
 }
 
@@ -143,9 +143,7 @@ input[type=button]:hover {
     margin: auto;
     margin-top: 20px;
     height: 500px;
-
     padding: 10px 5px;
-
 }
 
 input[type=submit] {
@@ -158,8 +156,7 @@ input[type=submit] {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    font-family: 'Lobster';
-
+    font-family: 'Lobster', sans-serif;
 }
 
 input[type=submit]:hover {

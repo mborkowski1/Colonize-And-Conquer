@@ -8,7 +8,7 @@ nav {
     background-size: 100%;
     border-bottom-left-radius: 20%;
     border-bottom-right-radius: 20%;
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
 }
 
 .custom-center {
@@ -35,7 +35,7 @@ nav li {
 }
 
 .premiumText a {
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
     font-size: 1.2em;
     color: black;
 }
@@ -53,8 +53,8 @@ th, td {
 
 table {
     font-family: arial, sans-serif;
-
 }
+
 button {
     background-color: #8b0000;
     border: none;
@@ -65,11 +65,9 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
 }
 
 button:hover {
     background-color: #bc0101;
 }
-
-

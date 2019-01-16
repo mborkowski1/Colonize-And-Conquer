@@ -26,7 +26,7 @@ header{
 
 header .limiter{
     max-width: 1000px;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 
 header h3{
@@ -56,7 +56,6 @@ header a:hover{
 }
 
 @media (max-width: 850px) {
-
     header h3{
         float: none;
         text-align: center;
@@ -66,5 +65,4 @@ header a:hover{
         margin-top: 20px;
         float: none;
     }
-
 }

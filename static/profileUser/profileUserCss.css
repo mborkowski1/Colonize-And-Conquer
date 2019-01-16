@@ -8,7 +8,7 @@ nav {
     background-size: 100%;
     border-bottom-left-radius: 20%;
     border-bottom-right-radius: 20%;
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
 }
 
 .custom-center {
@@ -34,13 +34,13 @@ nav li {
 }
 
 .profilePanel h3 {
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
     margin-bottom: 20px;
 
 }
 
 .profileLabel {
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
     font-size: 1.2em;
     color: black;
 }
@@ -48,10 +48,9 @@ nav li {
 .profileImage {
     border: 10px solid transparent;
     border-image: url('../cityMap/assets/border3.png') 30 round;
-
 }
 .profileText a {
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
     font-size: 1.2em;
     color: black;
 }
@@ -71,21 +70,14 @@ input[type=submit] {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
 }
 
 input[type=submit]:hover {
     background-color: #bc0101;
 }
 
-td{
+td {
     width: 300px;
-        padding: 5px;
-
+    padding: 5px;
 }
-
-tr{
-}
-
-
-

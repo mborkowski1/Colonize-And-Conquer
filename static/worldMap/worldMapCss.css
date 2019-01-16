@@ -8,7 +8,7 @@ nav {
     background-size: 100%;
     border-bottom-left-radius: 20%;
     border-bottom-right-radius: 20%;
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
 }
 
 .custom-center {
@@ -24,7 +24,6 @@ nav li {
     margin-left: 20px;
     margin-right: 20px;
 }
-
 
 #borderimg1 {
     border: 10px solid transparent;
@@ -59,11 +58,10 @@ th, td {
 
 table {
     font-family: arial, sans-serif;
-
 }
 
 .profileLabel {
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
     font-size: 1.2em;
     color: black;
 }
@@ -72,7 +70,7 @@ a, a:hover {
     color: #9d6600;
 }
 .profileText a {
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
     font-size: 1.2em;
     color: black;
 }
@@ -84,8 +82,9 @@ a, a:hover {
 
 .profileImage {
     border: 10px solid transparent;
-    border-image: url('../cityMap/assets/border3.png') 30 round;
+    border-image: url('../cityMap/assets/border8.png') 30 round;
 }
+
 button{
     background-color: #8b0000;
     border: none;
@@ -96,7 +95,7 @@ button{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
 }
 
 button:hover {

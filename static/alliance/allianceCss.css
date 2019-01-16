@@ -8,7 +8,7 @@ nav {
     background-size: 100%;
     border-bottom-left-radius: 20%;
     border-bottom-right-radius: 20%;
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
 }
 a, a:hover {
     color: #9d6600;
@@ -37,25 +37,24 @@ nav li {
     margin-top: 20px;
 }
 .alliancePanel h3 {
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
     margin-bottom: 20px;
     padding: 10px;
-
 }
 .allianceText a {
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
     font-size: 1.2em;
     color: black;
 }
 .allianceLabel {
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
     font-size: 1.2em;
     color: black;
     padding: 10px;
 }
 .forumLabel{
     color: #dca600;
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
     font-size: 1.2em;
 }
 
@@ -75,7 +74,6 @@ table {
 
 }
 
-
 input[type=submit] {
     background-color: darkred;
     border: none;
@@ -86,7 +84,7 @@ input[type=submit] {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
 }
 
 input[type=submit]:hover {
@@ -104,8 +102,7 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    font-family: 'Lobster';
-
+    font-family: 'Lobster', sans-serif;
 }
 
 button:hover {

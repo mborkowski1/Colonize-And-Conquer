@@ -8,7 +8,7 @@ nav {
     background-size: 100%;
     border-bottom-left-radius: 20%;
     border-bottom-right-radius: 20%;
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
 }
 
 .custom-center {
@@ -40,7 +40,7 @@ a, a:hover {
 }
 
 .cityListPanel h3 {
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
     margin-top: 10px;
     margin-bottom: 20px;
 
@@ -65,13 +65,26 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    font-family: 'Lobster';
+    font-family: 'Lobster', sans-serif;
 }
 
 button:hover {
     background-color: #bc0101;
 }
 
+input[type=button] {
+    background-color: darkred;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Lobster', sans-serif;
+}
 
-
-
+input[type=button]:hover {
+    background-color: #bc0101;
+}
