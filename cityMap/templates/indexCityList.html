@@ -10,6 +10,8 @@
                 <th scope="col">Points</th>
                 <th scope="col">Town Hall</th>
                 <th scope="col">Barracks</th>
+                <th scope="col">Housing</th>
+                <th scope="col">Science Center</th>
                 <th scope="col">Roads</th>
                 <th scope="col">Mines</th>
                 <th scope="col">Power Plant</th>
@@ -21,14 +23,16 @@
             <tbody>
             {% for city in city_list %}
             <tr>
-                <td><a href='../{{ city.id }}'>{{ city.city_name }}</a></td>
+                <td><a href='../{{ city.id }}/'>{{ city.city_name }}</a></td>
                 <td>{{ city.points }}</td>
-                <td><a href='../{{ city.id }}/rozbudowa'>{{ city.town_hall }}</a></td>
-                <td><a href='../{{ city.id }}/rekrutacja'>{{ city.barracks }}</a></td>
-                <td>{{ city.roads }}</td>
-                <td>{{ city.mines }}</td>
-                <td>{{ city.power_plant }}</td>
-                <td>{{ city.farms }}</td>
+                <td><a href='../{{ city.id }}/rozbudowa/'>{{ city.town_hall }}</a></td>
+                <td><a href='../{{ city.id }}/rekrutacja/'>{{ city.barracks }}</a></td>
+                <td><a href='../{{ city.id }}/mieszkania/'>{{ city.housing }}</a></td>
+                <td><a href='../{{ city.id }}/laboratorium/'>1</a></td>
+                <td><a href='../{{ city.id }}/drogi/'>{{ city.roads }}</a></td>
+                <td><a href='../{{ city.id }}/kopalnia/'>{{ city.mines }}</a></td>
+                <td><a href='../{{ city.id }}/elektrownia/'>{{ city.power_plant }}</a></td>
+                <td><a href='../{{ city.id }}/farmy/'>{{ city.farms }}</a></td>
                 <td>{{ city.pos_x }}</td>
                 <td>{{ city.pos_y }}</td>
             </tr>

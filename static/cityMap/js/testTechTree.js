@@ -42,7 +42,7 @@ function listenerClickTH1() {
 	        tech: "th1"
 	    }
 	});
-    window.location.href = "laboratorium";
+    window.location.href = "";
 }
 
 function listenerClickTH2() {
@@ -66,7 +66,7 @@ function listenerClickTH2() {
 	        tech: "th2"
 	    }
 	});
-    window.location.href = "laboratorium";
+    window.location.href = "";
 }
 
 function listenerClickM() {
@@ -90,7 +90,7 @@ function listenerClickM() {
 	        tech: "m"
 	    }
 	});
-    window.location.href = "laboratorium";
+    window.location.href = "";
 }
 
 function listenerClickF() {
@@ -114,7 +114,7 @@ function listenerClickF() {
 	        tech: "f"
 	    }
 	});
-    window.location.href = "laboratorium";
+    window.location.href = "";
 }
 
 function listenerClickPP() {
@@ -138,7 +138,7 @@ function listenerClickPP() {
 	        tech: "pp"
 	    }
 	});
-    window.location.href = "laboratorium";
+    window.location.href = "";
 }
 
 function listenerClickR() {
@@ -162,7 +162,7 @@ function listenerClickR() {
 	        tech: "r"
 	    }
 	});
-    window.location.href = "laboratorium";
+    window.location.href = "";
 }
 
 function listenerClickH() {
@@ -186,7 +186,7 @@ function listenerClickH() {
 	        tech: "h"
 	    }
 	});
-    window.location.href = "laboratorium";
+    window.location.href = "";
 }
 
 function listenerClickB() {
@@ -210,55 +210,55 @@ function listenerClickB() {
 	        tech: "b"
 	    }
 	});
-    window.location.href = "laboratorium";
+    window.location.href = "";
 }
 
 function listenerTH1(one, two, xx, yy) {
 	infoPanel = game.add.sprite(xx+50, yy, 'infoPanel');
 	text = game.add.text(xx+50, yy, '', { font:"15px Arial", fill: 'black' });
-    text.text = "Requirements: \nTown hall lvl 10";
+    text.text = "Town Hall \nRequirements: \nTown hall lvl 10";
 }
 
 function listenerTH2(one, two, xx, yy) {
 	infoPanel = game.add.sprite(xx+50, yy, 'infoPanel');
 	text = game.add.text(xx+50, yy, '', { font:"15px Arial", fill: 'black' });
-    text.text = "Requirements: \nTown hall lvl 20";
+    text.text = "Town Hall \nRequirements: \nTown hall lvl 20";
 }
 
 function listenerM(one, two, xx, yy) {
-	infoPanel = game.add.sprite(xx+50, yy, 'infoPanel');
+	infoPanel = game.add.sprite(xx+50, yy, 'infoPanel2');
 	text = game.add.text(xx+50, yy, '', { font:"14px Arial", fill: 'black' });
-    text.text = "Requirements: \nTown hall lvl 10\nTown hall 1 research";
+    text.text = "Mines \nRequirements: \nMines lvl 10\nTown hall lvl 10\nTown hall 1 research";
 }
 
 function listenerF(one, two, xx, yy) {
-	infoPanel = game.add.sprite(xx+50, yy, 'infoPanel');
+	infoPanel = game.add.sprite(xx+50, yy, 'infoPanel2');
 	text = game.add.text(xx+50, yy, '', { font:"15px Arial", fill: 'black' });
-    text.text = "Requirements: \nTown hall lvl 10\nTown hall 1 research";
+    text.text = "Farms \nRequirements: \nFarm lvl 10\nTown hall lvl 10\nTown hall 1 research";
 }
 
 function listenerPP(one, two, xx, yy) {
-	infoPanel = game.add.sprite(xx+50, yy, 'infoPanel');
+	infoPanel = game.add.sprite(xx+50, yy, 'infoPanel2');
 	text = game.add.text(xx+50, yy, '', { font:"15px Arial", fill: 'black' });
-    text.text = "Requirements: \nTown hall lvl 20\nTown hall 1 research\nTown hall 2 research";
+    text.text = "Power Plant \nRequirements: \nPower plant lvl 10\nTown hall lvl 20\nTown hall 1 research\nTown hall 2 research";
 }
 
 function listenerR(one, two, xx, yy) {
-	infoPanel = game.add.sprite(xx+50, yy, 'infoPanel');
+	infoPanel = game.add.sprite(xx+50, yy, 'infoPanel2');
 	text = game.add.text(xx+50, yy, '', { font:"15px Arial", fill: 'black' });
-    text.text = "Requirements: \nTown hall lvl 20\nTown hall 1 research\nTown hall 2 research";
+    text.text = "Roads \nRequirements: \nRoads lvl 10\nTown hall lvl 20\nTown hall 1 research\nTown hall 2 research";
 }
 
 function listenerH(one, two, xx, yy) {
-	infoPanel = game.add.sprite(xx+50, yy, 'infoPanel');
+	infoPanel = game.add.sprite(xx+50, yy, 'infoPanel2');
 	text = game.add.text(xx+50, yy, '', { font:"15px Arial", fill: 'black' });
-    text.text = "Requirements: \nTown hall lvl 20\nTown hall 1 research\nTown hall 2 research";
+    text.text = "Housing \nRequirements: \nHousing lvl 10\nTown hall lvl 20\nTown hall 1 research\nTown hall 2 research";
 }
 
 function listenerB(one, two, xx, yy) {
 	infoPanel = game.add.sprite(xx+50, yy, 'infoPanel2');
 	text = game.add.text(xx+50, yy, '', { font:"15px Arial", fill: 'black' });
-    text.text = "Requirements: \nTown hall lvl 20\nHousing lvl 10\nTown hall 1 research\nTown hall 2 research\nHousing research";
+    text.text = "Barracks \nRequirements: \nBarracks lvl 10\nTown hall lvl 20\nHousing lvl 10\nTown hall 1 research\nTown hall 2 research\nHousing research";
 }
 
 function listenerOverTech() {
@@ -361,7 +361,18 @@ function create() {
     th1.events.onInputOver.add(listenerTH1, this, 0, th1.x, th1.y);
 	th1.events.onInputOut.add(listenerOverTech);
     //////////////////////// TH2
-    if(researchTH1 == 1 && researchTH2 == 0 && lvltownHall >= 20){
+    if(researchTH2 == 1){
+        graphics = game.add.graphics(345, 295);
+        graphics.lineStyle(2, 0x0000FF, 1);
+        graphics.beginFill(0x334CFF, 1.0);
+        graphics.drawRect(0, 0, 140, 120);
+        graphics.endFill();
+
+        th2 = game.add.sprite(350, 300, "town_hall_3");
+        th2.scale.setTo(0.5, 0.5);
+        th2.inputEnabled = true;
+    }
+    else if(researchTH1 == 1 && researchTH2 == 0 && lvltownHall >= 20){
         graphics = game.add.graphics(345, 295);
         graphics.lineStyle(2, 0x0000FF, 1);
         graphics.beginFill(0x35FF08, 1.0);
@@ -373,18 +384,7 @@ function create() {
 	    th2.inputEnabled = true;
         th2.events.onInputDown.add(listenerClickTH2, this);
     }
-    if(researchTH1 == 1 && researchTH2 == 1){
-        graphics = game.add.graphics(345, 295);
-        graphics.lineStyle(2, 0x0000FF, 1);
-        graphics.beginFill(0x334CFF, 1.0);
-        graphics.drawRect(0, 0, 140, 120);
-        graphics.endFill();
-
-        th2 = game.add.sprite(350, 300, "town_hall_3");
-        th2.scale.setTo(0.5, 0.5);
-        th2.inputEnabled = true;
-    }
-    if(researchTH1 == 0 && researchTH2 == 0){
+    else{
         graphics = game.add.graphics(345, 295);
         graphics.lineStyle(2, 0x0000FF, 1);
         graphics.beginFill(0xFF0808, 1.0);
@@ -398,7 +398,18 @@ function create() {
     th2.events.onInputOver.add(listenerTH2, this, 0, th2.x, th2.y);
 	th2.events.onInputOut.add(listenerOverTech);
     ///////////////////////// M
-    if(researchTH1 == 1 && researchM == 0 && lvlmine >= 10){
+    if(researchM == 1){
+        graphics = game.add.graphics(125, 165);
+        graphics.lineStyle(2, 0x0000FF, 1);
+        graphics.beginFill(0x334CFF, 1.0);
+        graphics.drawRect(0, 0, 140, 120);
+        graphics.endFill();
+
+        m = game.add.sprite(130, 170, "mine_2");
+        m.scale.setTo(0.5, 0.5);
+        m.inputEnabled = true;
+    }
+    else if(researchTH1 == 1 && researchM == 0 && lvlmine >= 10){
         graphics = game.add.graphics(125, 165);
         graphics.lineStyle(2, 0x0000FF, 1);
         graphics.beginFill(0x35FF08, 1.0);
@@ -410,18 +421,7 @@ function create() {
 	    m.inputEnabled = true;
         m.events.onInputDown.add(listenerClickM, this);
     }
-    if(researchTH1 == 1 && researchM == 1){
-        graphics = game.add.graphics(125, 165);
-        graphics.lineStyle(2, 0x0000FF, 1);
-        graphics.beginFill(0x334CFF, 1.0);
-        graphics.drawRect(0, 0, 140, 120);
-        graphics.endFill();
-
-        m = game.add.sprite(130, 170, "mine_2");
-        m.scale.setTo(0.5, 0.5);
-        m.inputEnabled = true;
-    }
-    if(researchTH1 == 0 && researchM == 0){
+    else{
         graphics = game.add.graphics(125, 165);
         graphics.lineStyle(2, 0x0000FF, 1);
         graphics.beginFill(0xFF0808, 1.0);
@@ -435,7 +435,18 @@ function create() {
     m.events.onInputOver.add(listenerM, this, 0, m.x, m.y);
 	m.events.onInputOut.add(listenerOverTech);
     ///////////////////////// F
-    if(researchTH1 == 1 && researchF == 0 && lvlfarms >= 10){
+    if(researchF == 1){
+        graphics = game.add.graphics(565, 165);
+        graphics.lineStyle(2, 0x0000FF, 1);
+        graphics.beginFill(0x334CFF, 1.0);
+        graphics.drawRect(0, 0, 140, 120);
+        graphics.endFill();
+
+        f = game.add.sprite(580, 180, "farms_2");
+        f.scale.setTo(0.55, 0.8);
+        f.inputEnabled = true;
+    }
+    else if(researchTH1 == 1 && researchF == 0 && lvlfarms >= 10){
         graphics = game.add.graphics(565, 165);
         graphics.lineStyle(2, 0x0000FF, 1);
         graphics.beginFill(0x35FF08, 1.0);
@@ -447,18 +458,7 @@ function create() {
 	    f.inputEnabled = true;
         f.events.onInputDown.add(listenerClickF, this);
     }
-    if(researchTH1 == 1 && researchF == 1){
-        graphics = game.add.graphics(565, 165);
-        graphics.lineStyle(2, 0x0000FF, 1);
-        graphics.beginFill(0x334CFF, 1.0);
-        graphics.drawRect(0, 0, 140, 120);
-        graphics.endFill();
-
-        f = game.add.sprite(580, 180, "farms_2");
-        f.scale.setTo(0.55, 0.8);
-        f.inputEnabled = true;
-    }
-    if(researchTH1 == 0 && researchF == 0){
+    else{
         graphics = game.add.graphics(565, 165);
         graphics.lineStyle(2, 0x0000FF, 1);
         graphics.beginFill(0xFF0808, 1.0);
@@ -472,7 +472,18 @@ function create() {
     f.events.onInputOver.add(listenerF, this, 0, f.x, f.y);
 	f.events.onInputOut.add(listenerOverTech);
     //////////////////////// PP
-    if(researchTH2 == 1 && researchPP == 0 && lvlpowerPlant >= 10){
+    if(researchPP == 1){
+        graphics = game.add.graphics(565, 500);
+        graphics.lineStyle(2, 0x0000FF, 1);
+        graphics.beginFill(0x334CFF, 1.0);
+        graphics.drawRect(0, 0, 140, 120);
+        graphics.endFill();
+
+        pp = game.add.sprite(570, 510, "energy_2");
+        pp.scale.setTo(0.55, 0.55);
+        pp.inputEnabled = true;
+    }
+    else if(researchTH2 == 1 && researchPP == 0 && lvlpowerPlant >= 10){
         graphics = game.add.graphics(565, 500);
         graphics.lineStyle(2, 0x0000FF, 1);
         graphics.beginFill(0x35FF08, 1.0);
@@ -484,18 +495,7 @@ function create() {
 	    pp.inputEnabled = true;
         pp.events.onInputDown.add(listenerClickPP, this);
     }
-    if(researchTH2 == 1 && researchPP == 1){
-        graphics = game.add.graphics(565, 500);
-        graphics.lineStyle(2, 0x0000FF, 1);
-        graphics.beginFill(0x334CFF, 1.0);
-        graphics.drawRect(0, 0, 140, 120);
-        graphics.endFill();
-
-        pp = game.add.sprite(570, 510, "energy_2");
-        pp.scale.setTo(0.55, 0.55);
-        pp.inputEnabled = true;
-    }
-    if(researchTH2 == 0 && researchPP == 0){
+    else{
         graphics = game.add.graphics(565, 500);
         graphics.lineStyle(2, 0x0000FF, 1);
         graphics.beginFill(0xFF0808, 1.0);
@@ -509,7 +509,18 @@ function create() {
     pp.events.onInputOver.add(listenerPP, this, 0, pp.x, pp.y);
 	pp.events.onInputOut.add(listenerOverTech);
     //////////////////////// R
-    if(researchTH2 == 1 && researchR == 0 && lvlroads >= 10){
+    if(researchR == 1){
+        graphics = game.add.graphics(125, 500);
+        graphics.lineStyle(2, 0x0000FF, 1);
+        graphics.beginFill(0x334CFF, 1.0);
+        graphics.drawRect(0, 0, 140, 120);
+        graphics.endFill();
+
+        r = game.add.sprite(140, 520, "roads_2");
+        r.scale.setTo(0.55, 0.55);
+        r.inputEnabled = true;
+    }
+    else if(researchTH2 == 1 && researchR == 0 && lvlroads >= 10){
         graphics = game.add.graphics(125, 500);
         graphics.lineStyle(2, 0x0000FF, 1);
         graphics.beginFill(0x35FF08, 1.0);
@@ -521,18 +532,7 @@ function create() {
 	    r.inputEnabled = true;
         r.events.onInputDown.add(listenerClickR, this);
     }
-    if(researchTH2 == 1 && researchR == 1){
-        graphics = game.add.graphics(125, 500);
-        graphics.lineStyle(2, 0x0000FF, 1);
-        graphics.beginFill(0x334CFF, 1.0);
-        graphics.drawRect(0, 0, 140, 120);
-        graphics.endFill();
-
-        r = game.add.sprite(140, 520, "roads_2");
-        r.scale.setTo(0.55, 0.55);
-        r.inputEnabled = true;
-    }
-    if(researchTH2 == 0 && researchR == 0){
+    else{
         graphics = game.add.graphics(125, 500);
         graphics.lineStyle(2, 0x0000FF, 1);
         graphics.beginFill(0xFF0808, 1.0);
@@ -546,7 +546,18 @@ function create() {
     r.events.onInputOver.add(listenerR, this, 0, r.x, r.y);
 	r.events.onInputOut.add(listenerOverTech);
     //////////////////////// H
-    if(researchTH2 == 1 && researchH == 0 && lvlhousing >= 10){
+    if(researchH == 1){
+        graphics = game.add.graphics(345, 445);
+        graphics.lineStyle(2, 0x0000FF, 1);
+        graphics.beginFill(0x334CFF, 1.0);
+        graphics.drawRect(0, 0, 140, 120);
+        graphics.endFill();
+
+        h = game.add.sprite(350, 450, "housing_2");
+        h.scale.setTo(0.30, 0.30);
+        h.inputEnabled = true;
+    }
+    else if(researchTH2 == 1 && researchH == 0 && lvlhousing >= 10){
         graphics = game.add.graphics(345, 445);
         graphics.lineStyle(2, 0x0000FF, 1);
         graphics.beginFill(0x35FF08, 1.0);
@@ -558,10 +569,10 @@ function create() {
 	    h.inputEnabled = true;
         h.events.onInputDown.add(listenerClickH, this);
     }
-    if(researchTH2 == 1 && researchH == 1){
+    else{
         graphics = game.add.graphics(345, 445);
         graphics.lineStyle(2, 0x0000FF, 1);
-        graphics.beginFill(0x334CFF, 1.0);
+        graphics.beginFill(0xFF0808, 1.0);
         graphics.drawRect(0, 0, 140, 120);
         graphics.endFill();
 
@@ -569,21 +580,21 @@ function create() {
         h.scale.setTo(0.30, 0.30);
         h.inputEnabled = true;
     }
-    if(researchTH2 == 0 && researchH == 0){
-        graphics = game.add.graphics(345, 595);
-        graphics.lineStyle(2, 0x0000FF, 1);
-        graphics.beginFill(0xFF0808, 1.0);
-        graphics.drawRect(0, 0, 140, 120);
-        graphics.endFill();
-
-        h = game.add.sprite(350, 600, "barracks_2");
-        h.scale.setTo(0.30, 0.30);
-        h.inputEnabled = true;
-    }
     h.events.onInputOver.add(listenerH, this, 0, h.x, h.y);
 	h.events.onInputOut.add(listenerOverTech);
     //////////////////////// B
-    if(researchH == 1 && researchB == 0 && lvlbarracks >= 10){
+    if(researchB == 1){
+        graphics = game.add.graphics(345, 600);
+        graphics.lineStyle(2, 0x0000FF, 1);
+        graphics.beginFill(0x334CFF, 1.0);
+        graphics.drawRect(0, 0, 140, 120);
+        graphics.endFill();
+
+        b = game.add.sprite(350, 600, "barracks_2");
+        b.scale.setTo(0.60, 0.60);
+        b.inputEnabled = true;
+    }
+    else if(researchH == 1 && researchB == 0 && lvlbarracks >= 10){
         graphics = game.add.graphics(345, 595);
         graphics.lineStyle(2, 0x0000FF, 1);
         graphics.beginFill(0x35FF08, 1.0);
@@ -595,18 +606,7 @@ function create() {
 	    b.inputEnabled = true;
         b.events.onInputDown.add(listenerClickB, this);
     }
-    if(researchH == 1 && researchB == 1){
-        graphics = game.add.graphics(345, 600);
-        graphics.lineStyle(2, 0x0000FF, 1);
-        graphics.beginFill(0x334CFF, 1.0);
-        graphics.drawRect(0, 0, 140, 120);
-        graphics.endFill();
-
-        b = game.add.sprite(350, 600, "barracks_2");
-        b.scale.setTo(0.60, 0.60);
-        b.inputEnabled = true;
-    }
-    if(researchH == 0 && researchB == 0){
+    else{
         graphics = game.add.graphics(345, 595);
         graphics.lineStyle(2, 0x0000FF, 1);
         graphics.beginFill(0xFF0808, 1.0);

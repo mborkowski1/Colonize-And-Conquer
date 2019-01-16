@@ -148,19 +148,11 @@
                         .then(response => {
                             this.forum = response.data;
                             this.subforums = this.forum.sub_forums;
-                            console.log(response)
-                        })
-                        .catch(error => {
-                            console.error(error)
                         });
                     this.$http.get('/api/alliance/' + allianceId + '/')
                         .then(response => {
                             this.currentAlliance = response.data;
                             this.userIsForumCreatorOrViceCreator = this.currentAlliance.creator === userId || this.currentAlliance.vice_creator === userId;
-                            console.log(response);
-                        })
-                        .catch(error => {
-                            console.error(error)
                         });
                 },
                 chooseForum(forumTitle) {
@@ -184,12 +176,6 @@
                 addNewPost() {
                     if (this.newPostMessage !== null && this.newPostMessage !== '') {
                         this.$http.post(allianceId + '/postForum', {id_of_topic: this.currentTopic.id, text: this.newPostMessage})
-                            .then(response => {
-                                console.log(response);
-                            })
-                            .catch(error => {
-                                console.log(error);
-                            })
                             .finally(() => {
                                 this.newPostMessage = '';
                             });
@@ -200,22 +186,12 @@
                                 this.topics = this.currentSubforum.topics;
                                 this.currentTopic = this.topics.find(value => value.id === this.currentTopic.id);
                                 this.posts = this.currentTopic.posts;
-                                console.log(response);
-                            })
-                            .catch(error => {
-                                console.log(error);
                             });
                     }
                 },
                 addNewTopic() {
                     if (this.newTopicName !== null && this.newTopicName !== '') {
                         this.$http.post(allianceId + '/topic', {title: this.newTopicName, id_of_sub_forum: this.currentSubforum.id})
-                            .then(response => {
-                                console.log(response);
-                            })
-                            .catch(error => {
-                                console.log(error);
-                            })
                             .finally(() => {
                                 this.newTopicName = '';
                             });
@@ -224,22 +200,14 @@
                                 this.getData();
                                 this.currentSubforum = response.data;
                                 this.topics = this.currentSubforum.topics;
-                                console.log(response);
-                            })
-                            .catch(error => {
-                                console.log(error);
                             });
                     }
                 },
                 addNewForum() {
                     if (this.newForumName !== null && this.newForumName !== '') {
                         this.$http.post(allianceId + '/subForum', {title: this.newForumName, id_of_forum: this.forum.id})
-                            .then(response => {
+                            .then(()=> {
                                 this.getData();
-                                console.log(response);
-                            })
-                            .catch(error => {
-                                console.log(error);
                             })
                             .finally(() => {
                                 this.newForumName= '';

@@ -51,11 +51,13 @@
             </div>
         </nav>
     </div>
+    <h3 class="font-weight-bold text-center"><u><a href="../../../../../../"><button class="mainPageLink">Main Page</button></a></u></h3>
     <h1 class="text-center" style="font-family: 'Lobster', sans-serif; margin: 20px;"><u>House </u></h1>
     <div id="housing">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12 cityListPanel">
+                    <h3 class="font-weight-bold text-center"><u><a href="../"><button class="mainPageLink">Back to city</button></a></u></h3>
                     <h3 class="text-center font-weight-bold"><u>Add new city</u></h3>
                     <div class="text-center">
                         <form @submit.prevent="AddCity" class="form-group">
@@ -144,10 +146,6 @@
                     this.$http.get('/api/city/' + cityId)
                         .then(response => {
                             this.city = response.data;
-                            console.log(response)
-                        })
-                        .catch(error => {
-                            console.error(error)
                         });
                 },
                 AddCity() {
@@ -166,23 +164,11 @@
                             this.city.food -= this.requirementFood;
                             this.city.ore -= this.requirementOre;
                             this.city.electricity -= this.requirementElectricity;
-                            this.$http.put('/api/city/' + cityId + '/', this.city)
-                                .then(response => {
-                                    console.log(response);
-                                })
-                                .catch(error => {
-                                    console.error(error);
-                                });
+                            this.$http.put('/api/city/' + cityId + '/', this.city);
                             this.$http.post('../../../../../miasto/colonize/', {
                                 resource_check: 1,
                                 city_name: this.cityNameToAdd
-                            })
-                                .then(response => {
-                                    console.log(response)
-                                })
-                                .catch(error => {
-                                    console.error(error)
-                                });
+                            });
                             this.cityNameToAdd = '';
                         }
                     }
