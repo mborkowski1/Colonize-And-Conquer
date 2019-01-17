@@ -1,10 +1,18 @@
 {% extends 'alliance.html' %}
-
+{% load static %}
 {% block showAlliance %}
 <div class="row col-lg-12">
     <div class="col-12">
         <table class="table table-hover table-borderless">
             <thead class="thead-dark">
+            <tr>
+                {% if not alliance.alliance_logo %}
+                <th><img height="350" width="220" src="{% static 'profileUser/defaultProfilePic.jpg' %} " alt="Profile pic" class="profileImage"/></th>
+                {% else %}
+                <th><img height="350" width="220" src='https://storage.googleapis.com/solwit-pjatk-arc-2018-gr1.appspot.com/{{ alliance.alliance_logo }}' alt="Profile pic" class="profileImage"/></th>
+                {% endif %}
+                <th>{{ alliance.alliance_bio }}</th>
+            </tr>    
             <tr>
                 <th>Name: {{ alliance.name }}</th>
                 <th>Members: {{ alliance.members.count }}</th>

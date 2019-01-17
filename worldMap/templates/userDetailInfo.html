@@ -63,7 +63,7 @@
                 <img height="350" width="220" src="{% static 'alliance/defaultProfilePic.jpg' %} "
                      alt="Profile pic" class="profileImage"/>
                 {% else %}
-                <img height="350" width="220" src='{{ profil.profile_pic}}' alt="Profile pic" class="profileImage"/>
+                <img height="350" width="220" src='https://storage.googleapis.com/solwit-pjatk-arc-2018-gr1.appspot.com/{{ profil.profile_pic}}' alt="Profile pic" class="profileImage"/>
                 {% endif %}
                 <p class="text-center profileLabel"> Username: <span style="color: darkblue">{{ user.username }}</span></p>
                 <p class="text-center profileLabel">Bio: {{ profil.bio }}</p>

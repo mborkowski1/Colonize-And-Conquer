@@ -5,7 +5,7 @@
     {% if not profil.profile_pic %}
     <img height="350" width="220" src="{% static 'profileUser/defaultProfilePic.jpg' %} " alt="Profile pic" class="profileImage"/>
     {% else %}
-    <img height="350" width="220" src='{{ profil.profile_pic }}' alt="Profile pic" class="profileImage"/>
+    <img height="350" width="220" src='https://storage.googleapis.com/solwit-pjatk-arc-2018-gr1.appspot.com/{{ profil.profile_pic }}' alt="Profile pic" class="profileImage"/>
     {% endif %}
     <table class="custom-center">
         <tr><td><p class="profileLabel">Username:</td> <td><span style="color: darkblue">{{ user.username }}</span></td></tr>
