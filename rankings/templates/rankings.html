@@ -84,7 +84,7 @@
                             <h2 class="text-center">User Details</h2>
                             <div class="justify-content-center d-flex mb-3">
                                 <img v-show="userProfileToShow.profile_pic === null" height="350" width="220" src="{% static 'alliance/defaultProfilePic.jpg' %}" alt="Profile Pic" class="profileImage" />
-                                <img v-show="userProfileToShow.profile_pic !== null" height="350" width="220" :src="userProfileToShow.profile_pic" alt="Profile Pic" class="profileImage" />
+                                <img v-show="userProfileToShow.profile_pic !== null" height="350" width="220" :src="'https://storage.googleapis.com/solwit-pjatk-arc-2018-gr1.appspot.com/'+userProfileToShow.profile_pic" alt="Profile Pic" class="profileImage" />
                             </div>
                             <table class="table table-borderless table-hover">
                                 <thead class="thead-dark">

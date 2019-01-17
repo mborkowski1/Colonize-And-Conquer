@@ -16,6 +16,7 @@ class CityPositionsSerializer(serializers.ModelSerializer):
 
 
 class ProfileSerializer(serializers.ModelSerializer):
+    profile_pic = serializers.FileField(use_url=False)
     class Meta:
         model = Profile
         fields = '__all__'
